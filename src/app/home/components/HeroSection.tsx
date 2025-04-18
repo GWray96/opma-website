@@ -53,7 +53,7 @@ export default function HeroSection() {
         >
           <img
             className="h-full w-full object-cover"
-            src="/images/hero-image.jpg"
+            src="/images/hero-image.svg"
             alt="Digital Marketing and AI Solutions"
           />
         </motion.div>

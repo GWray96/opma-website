@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Footer from '@/components/shared/Footer'
-import Navigation from '@/components/shared/Navigation'
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -33,12 +33,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        <script
-          src="https://assets.calendly.com/assets/external/widget.js"
-          async
-        />
-      </head>
       <body className={`${inter.className} antialiased`}>
         <div className="flex min-h-screen flex-col">
           <Navigation />
