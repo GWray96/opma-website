@@ -138,9 +138,11 @@ export const HeroSection = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="lg:ml-auto"
+              className="flex justify-center lg:justify-end items-center w-full h-full"
             >
-              <ServicePhone />
+              <div className="w-full max-w-[320px]">
+                <ServicePhone />
+              </div>
             </motion.div>
           </div>
         </div>

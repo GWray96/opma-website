@@ -94,14 +94,14 @@ export const ServicePhone = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2 }}
-      className="relative max-w-sm mx-auto"
+      className="relative w-[320px] mx-auto"
     >
       {/* Phone Frame */}
       <div className="relative w-full aspect-[9/19] bg-black rounded-[3rem] p-4 shadow-2xl border-8 border-gray-800">
         {/* Phone Screen */}
         <div className="absolute inset-0 m-2 rounded-[2rem] overflow-hidden bg-gradient-to-br from-purple-600 via-blue-600 to-blue-400">
           {/* Content Area */}
-          <div className="relative h-full p-6 overflow-y-auto">
+          <div className="relative h-full p-6 overflow-y-auto scrollbar-hide">
             {/* Header */}
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-white mb-2">My Collection</h2>
