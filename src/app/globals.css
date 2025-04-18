@@ -3,8 +3,15 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --background: 255 255 255;
+    --foreground: 15 23 42;
+  }
+
   body {
-    @apply bg-background text-foreground font-inter antialiased;
+    @apply font-inter antialiased;
+    background-color: rgb(var(--background));
+    color: rgb(var(--foreground));
   }
 
   h1, h2, h3, h4, h5, h6 {
