@@ -8,27 +8,52 @@ import { usePathname } from 'next/navigation';
 
 const DrawCircle = () => (
   <svg
-    className="absolute w-[calc(100%+1.5rem)] h-[calc(100%+0.75rem)] pointer-events-none"
+    className="absolute w-[calc(100%+2rem)] h-[calc(100%+1.5rem)] pointer-events-none"
     style={{ 
-      left: '-0.75rem',
-      top: '-0.375rem'
+      left: '-1rem',
+      top: '-0.75rem'
     }}
-    viewBox="0 0 120 50"
+    viewBox="0 0 100 60"
   >
     <motion.path
-      d="M 15,25 C 15,15 25,5 60,5 C 95,5 105,15 105,25 C 105,35 95,45 60,45 C 25,45 15,35 15,25"
+      d="M 20,30 
+         C 20,18 28,12 35,10 
+         C 42,8 58,8 65,10 
+         C 72,12 80,18 80,30 
+         C 80,42 72,48 65,50 
+         C 58,52 42,52 35,50 
+         C 28,48 20,42 20,30 
+         M 20,30 
+         C 20,28 21,26 22,25"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.5"
+      strokeWidth="1.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-blue-600/70"
+      initial={{ pathLength: 0 }}
+      animate={{ pathLength: 1 }}
+      transition={{
+        duration: 1.2,
+        ease: [0.4, 0, 0.2, 1]
+      }}
+      strokeDasharray="4 2"
+    />
+    <motion.path
+      d="M 19,32 
+         C 19,35 22,38 24,40"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.2"
       strokeLinecap="round"
       className="text-blue-600/70"
       initial={{ pathLength: 0 }}
       animate={{ pathLength: 1 }}
       transition={{
-        duration: 0.8,
-        ease: "easeInOut"
+        duration: 0.3,
+        delay: 0.8,
+        ease: "easeOut"
       }}
-      strokeDasharray="0 1"
     />
   </svg>
 );
@@ -88,7 +113,7 @@ export const Navbar = () => {
             href="/" 
             className={`flex items-center space-x-2 group relative ${isActive('/') ? 'text-blue-600' : ''}`}
           >
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:to-indigo-700 transition-all duration-300 relative px-3">
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:to-indigo-700 transition-all duration-300 relative px-4 py-2">
               OPMA
               {isActive('/') && <DrawCircle />}
             </span>
@@ -100,11 +125,11 @@ export const Navbar = () => {
               <Link 
                 key={item.href} 
                 href={item.href}
-                className={`text-gray-700 hover:text-blue-600 transition-colors font-medium relative px-4 py-2 ${
+                className={`text-gray-700 hover:text-blue-600 transition-colors font-medium relative ${
                   isActive(item.href) ? 'text-blue-600' : ''
                 }`}
               >
-                <span className="relative">
+                <span className="relative px-4 py-2 block">
                   {item.label}
                   {isActive(item.href) && <DrawCircle />}
                 </span>
@@ -114,13 +139,13 @@ export const Navbar = () => {
             {/* Insights Dropdown */}
             <div className="relative">
               <button
-                className={`flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium group px-4 py-2 relative ${
+                className={`flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium group relative ${
                   insightsItems.some(item => isActive(item.href)) ? 'text-blue-600' : ''
                 }`}
                 onMouseEnter={() => setIsInsightsOpen(true)}
                 onMouseLeave={() => setIsInsightsOpen(false)}
               >
-                <span className="relative">
+                <span className="relative px-4 py-2 block">
                   Insights
                   <FiChevronDown className={`ml-1 inline-block transition-transform duration-200 ${isInsightsOpen ? 'rotate-180' : ''}`} />
                   {insightsItems.some(item => isActive(item.href)) && <DrawCircle />}
