@@ -1,9 +1,14 @@
+import * as React from 'react'
 import PricingTable from './components/PricingTable'
+import FAQ from './components/FAQ'
 
-export default function PricingPage() {
+const PricingPage: React.FC = () => {
   return (
     <main>
       <PricingTable />
+      <FAQ />
     </main>
   )
-} 
+}
+
+export default PricingPage 

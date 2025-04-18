@@ -1,21 +1,32 @@
 'use client'
 
+import * as React from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-const tiers = [
+interface Tier {
+  name: string
+  id: string
+  href: string
+  priceMonthly: string
+  description: string
+  features: string[]
+  featured: boolean
+}
+
+const tiers: Tier[] = [
   {
     name: 'Starter',
     id: 'tier-starter',
     href: '/contact',
-    priceMonthly: '$49',
+    priceMonthly: '$499',
     description: 'Perfect for small businesses just getting started.',
     features: [
-      'Basic business process automation',
-      'Standard digital marketing tools',
+      'Basic digital marketing setup',
+      'Monthly content creation (2 pieces)',
+      'Basic SEO optimization',
+      'Monthly performance report',
       'Email support',
-      'Up to 5 users',
-      'Basic analytics',
     ],
     featured: false,
   },
@@ -23,16 +34,16 @@ const tiers = [
     name: 'Professional',
     id: 'tier-professional',
     href: '/contact',
-    priceMonthly: '$99',
+    priceMonthly: '$999',
     description: 'Ideal for growing businesses with advanced needs.',
     features: [
-      'Advanced process automation',
-      'Premium digital marketing suite',
+      'Comprehensive digital marketing strategy',
+      'Weekly content creation (4 pieces)',
+      'Advanced SEO optimization',
+      'Social media management',
+      'Basic workflow automation',
+      'Weekly performance reports',
       'Priority email & phone support',
-      'Up to 20 users',
-      'Advanced analytics & reporting',
-      'AI-powered insights',
-      'Custom integrations',
     ],
     featured: true,
   },
@@ -43,24 +54,25 @@ const tiers = [
     priceMonthly: 'Custom',
     description: 'For large organizations with complex requirements.',
     features: [
-      'Custom automation solutions',
-      'Enterprise-grade marketing tools',
-      '24/7 dedicated support',
-      'Unlimited users',
-      'Custom analytics & reporting',
-      'Advanced AI capabilities',
-      'White-label solutions',
-      'SLA guarantees',
+      'Custom digital marketing strategy',
+      'Daily content creation',
+      'Advanced SEO & PPC campaigns',
+      'Full social media management',
+      'Custom AI integration',
+      'Advanced workflow automation',
+      'Real-time analytics dashboard',
+      'Dedicated account manager',
+      '24/7 priority support',
     ],
     featured: false,
   },
 ]
 
-function classNames(...classes: string[]) {
+function classNames(...classes: string[]): string {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function PricingTable() {
+const PricingTable: React.FC = () => {
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -135,4 +147,6 @@ export default function PricingTable() {
       </div>
     </div>
   )
-} 
+}
+
+export default PricingTable 
