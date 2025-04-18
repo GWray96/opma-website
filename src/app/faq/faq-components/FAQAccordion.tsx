@@ -50,7 +50,7 @@ const faqItems: FAQItem[] = [
   {
     id: '7',
     question: 'Do you offer ongoing support after the initial engagement?',
-    answer: 'Yes, we offer various support options after the initial engagement, including ongoing consulting, periodic reviews, and maintenance services. We're committed to ensuring that our clients continue to benefit from our expertise and maintain the improvements achieved.',
+    answer: 'Yes, we offer various support options after the initial engagement, including ongoing consulting, periodic reviews, and maintenance services. We\'re committed to ensuring that our clients continue to benefit from our expertise and maintain the improvements achieved.',
     category: 'Services'
   },
   {
