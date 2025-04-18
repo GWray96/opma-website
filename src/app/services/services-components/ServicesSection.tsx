@@ -1,6 +1,8 @@
+'use client'
+
 import React from 'react';
 
-const ServicesSection = () => {
+export const ServicesSection = () => {
   const services = [
     {
       title: 'Process Optimization',
@@ -43,6 +45,4 @@ const ServicesSection = () => {
       </div>
     </section>
   );
-};
-
-export default ServicesSection; 
+}; 
