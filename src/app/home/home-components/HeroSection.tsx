@@ -135,9 +135,9 @@ export const HeroSection = () => {
                 className="bg-white/10 backdrop-blur-lg p-6 rounded-xl border border-white/10"
               >
                 <p className="italic text-lg mb-2 text-blue-50">
-                  "Wrayvolution gave me back 10+ hours a week. I now focus on vision, not busywork."
+                  "Outstanding service from Gareth! He took care of everything, from setting up automations to creating lead magnets. Excited for what we can achieve together 👍 Highly recommend!"
                 </p>
-                <p className="text-blue-300 font-medium">— Recruitment Agency Owner</p>
+                <p className="text-blue-300 font-medium">— The Lead Hive</p>
               </motion.div>
             </div>
           </motion.div>
