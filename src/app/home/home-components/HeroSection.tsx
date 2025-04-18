@@ -137,7 +137,7 @@ export const HeroSection = () => {
                 <p className="italic text-lg mb-2 text-blue-50">
                   "Outstanding service from Gareth! He took care of everything, from setting up automations to creating lead magnets. Excited for what we can achieve together 👍 Highly recommend!"
                 </p>
-                <p className="text-blue-300 font-medium">— The Lead Hive</p>
+                <p className="text-blue-300 font-medium">— Mazin Alneami</p>
               </motion.div>
             </div>
           </motion.div>
