@@ -1,32 +1,27 @@
 'use client'
 
-import { Fragment, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useState } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { Dialog } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '/services' },
   { name: 'Pricing', href: '/pricing' },
-  { name: 'About', href: '/about' },
-  { name: 'Case Studies', href: '/case-studies' },
-  { name: 'Resources', href: '/resources' },
   { name: 'Contact', href: '/contact' },
 ]
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const pathname = usePathname()
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
-      <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <header className="bg-white">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">OPMA</span>
-            <img className="h-8 w-auto" src="/images/logo.svg" alt="OPMA" />
+            <img className="h-8 w-auto" src="/images/logo.svg" alt="OPMA Logo" />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -44,30 +39,25 @@ export default function Navigation() {
             <Link
               key={item.name}
               href={item.href}
-              className={`text-sm font-semibold leading-6 ${
-                pathname === item.href ? 'text-blue-600' : 'text-gray-900'
-              }`}
+              className="text-sm font-semibold leading-6 text-gray-900 hover:text-gray-600"
             >
               {item.name}
             </Link>
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link
-            href="/contact"
-            className="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-          >
-            Get Started
+          <Link href="/contact" className="text-sm font-semibold leading-6 text-gray-900">
+            Get Started <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-        <div className="fixed inset-0 z-50" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <div className="fixed inset-0 z-10" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">OPMA</span>
-              <img className="h-8 w-auto" src="/images/logo.svg" alt="OPMA" />
+              <img className="h-8 w-auto" src="/images/logo.svg" alt="OPMA Logo" />
             </Link>
             <button
               type="button"
@@ -85,9 +75,7 @@ export default function Navigation() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 ${
-                      pathname === item.href ? 'text-blue-600' : 'text-gray-900'
-                    }`}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.name}
