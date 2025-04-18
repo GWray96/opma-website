@@ -8,7 +8,7 @@ import { CtaSection } from './home/home-components/CtaSection';
 
 export default function Home() {
   return (
-    <main>
+    <main className="w-full min-h-screen bg-white">
       <HeroSection />
       <FeaturesSection />
       <TestimonialsSection />
