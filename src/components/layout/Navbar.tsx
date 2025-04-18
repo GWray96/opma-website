@@ -6,7 +6,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronDown, FiMenu, FiX } from 'react-icons/fi';
 import { usePathname } from 'next/navigation';
 
-const NavLink = ({ href, children, isActive, onClick = () => {} }) => (
+interface NavLinkProps {
+  href: string;
+  children: React.ReactNode;
+  isActive: boolean;
+  onClick?: () => void;
+}
+
+const NavLink: React.FC<NavLinkProps> = ({ href, children, isActive, onClick = () => {} }) => (
   <Link
     href={href}
     className={`relative group ${isActive ? 'text-blue-600' : 'text-gray-700'}`}
