@@ -18,11 +18,10 @@ const config: Config = {
       white: '#FFFFFF',
       transparent: 'transparent',
     },
-    extend: {
-      fontFamily: {
-        sora: ['var(--font-sora)', 'system-ui', 'sans-serif'],
-        inter: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-      },
+    fontFamily: {
+      sora: ['var(--font-sora)', 'system-ui', 'sans-serif'],
+      inter: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+      sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
     },
   },
   plugins: [],

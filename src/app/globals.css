@@ -9,7 +9,7 @@
   }
 
   body {
-    @apply font-inter antialiased;
+    @apply font-sans antialiased;
     background-color: rgb(var(--background));
     color: rgb(var(--foreground));
   }
