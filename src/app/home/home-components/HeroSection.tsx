@@ -7,7 +7,7 @@ import { ServicePhone } from './ServicePhone';
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-neutral to-neutral/90 text-white overflow-hidden py-20">
+    <section className="relative min-h-screen flex items-center justify-center bg-background text-neutral overflow-hidden py-20">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black opacity-70"></div>
@@ -27,14 +27,14 @@ export const HeroSection = () => {
               className="text-left space-y-8"
             >
               <div className="space-y-6">
-                <h1 className="font-sora font-bold text-4xl md:text-6xl leading-tight">
+                <h1 className="font-sora font-bold text-4xl md:text-6xl leading-tight text-neutral">
                   Marketing. Automation. AI.<br />
                   <span className="text-3xl md:text-5xl text-primary">On Demand.</span>
                 </h1>
-                <p className="font-sora text-xl md:text-2xl text-background/90">
+                <p className="font-sora text-xl md:text-2xl text-neutral/80">
                   Like Spotify — but for growing your business.
                 </p>
-                <p className="text-lg md:text-xl text-background/80">
+                <p className="text-lg md:text-xl text-neutral/70">
                   A done-for-you subscription that gives you instant access to digital marketing, 
                   AI tools, and automation systems.
                 </p>
@@ -45,21 +45,21 @@ export const HeroSection = () => {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="font-sora font-semibold bg-primary text-white px-8 py-4 rounded-lg shadow-soft hover:shadow-hover transition-all"
+                  className="font-sora font-semibold bg-primary text-background px-8 py-4 rounded-lg shadow-soft hover:shadow-hover transition-all"
                 >
                   Start Your Subscription
                 </motion.button>
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="font-sora font-semibold border-2 border-background bg-transparent px-8 py-4 rounded-lg hover:bg-background hover:text-neutral transition-colors"
+                  className="font-sora font-semibold border-2 border-primary text-primary bg-transparent px-8 py-4 rounded-lg hover:bg-primary hover:text-background transition-colors"
                 >
                   Book Your Free Strategy Call
                 </motion.button>
               </div>
 
               {/* Risk Reversal */}
-              <p className="text-background/70">
+              <p className="text-neutral/60">
                 No contracts. Cancel anytime. Full flexibility.
               </p>
 
@@ -68,9 +68,9 @@ export const HeroSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="flex items-center gap-4 bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/10 w-fit"
+                className="flex items-center gap-4 bg-neutral/5 backdrop-blur-sm p-4 rounded-xl border border-neutral/10 w-fit"
               >
-                <div className="relative w-[120px] h-[60px] flex-shrink-0 bg-black rounded-lg flex items-center justify-center overflow-hidden">
+                <div className="relative w-[120px] h-[60px] flex-shrink-0 bg-white rounded-lg flex items-center justify-center overflow-hidden">
                   <Image
                     src="/images/Rich and Niche Logo.png"
                     alt="Rich + Niche Academy"
@@ -80,8 +80,8 @@ export const HeroSection = () => {
                     priority
                   />
                 </div>
-                <p className="text-sm text-background/80">
-                  Trained at <span className="font-semibold text-background">Rich + Niche Academy</span>
+                <p className="text-sm text-neutral/70">
+                  Trained at <span className="font-semibold text-neutral">Rich + Niche Academy</span>
                 </p>
               </motion.div>
             </motion.div>
