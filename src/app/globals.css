@@ -4,8 +4,6 @@
 
 @layer base {
   body {
-    background-color: #F8FAFC;  /* surface-50 */
-    color: #0F172A;             /* surface-900 */
     font-family: var(--font-dm-sans), system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
