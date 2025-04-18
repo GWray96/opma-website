@@ -7,7 +7,7 @@ const faqs = [
   {
     question: "What's included in the monthly subscription?",
     answer:
-      'Each plan includes a comprehensive suite of digital marketing services, AI integration, and workflow automation tools. You'll get regular strategy calls, performance reports, and ongoing support from our team of experts.',
+      "Each plan includes a comprehensive suite of digital marketing services, AI integration, and workflow automation tools. You'll get regular strategy calls, performance reports, and ongoing support from our team of experts.",
   },
   {
     question: 'Can I change plans later?',
@@ -22,7 +22,7 @@ const faqs = [
   {
     question: 'How long does it take to get started?',
     answer:
-      'Once you subscribe, we'll schedule an onboarding call within 24 hours. Most clients are up and running within 1-2 weeks.',
+      "Once you subscribe, we'll schedule an onboarding call within 24 hours. Most clients are up and running within 1-2 weeks.",
   },
   {
     question: 'What kind of support do you offer?',
