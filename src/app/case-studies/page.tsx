@@ -4,7 +4,18 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import CaseStudyCard from './components/CaseStudyCard';
 
-const caseStudies = [
+interface CaseStudy {
+  id: string | number;
+  title: string;
+  client: string;
+  industry: string;
+  challenge: string;
+  solution: string;
+  results: string[];
+  imageUrl: string;
+}
+
+const caseStudies: CaseStudy[] = [
   {
     id: 1,
     title: 'Digital Transformation Success',
