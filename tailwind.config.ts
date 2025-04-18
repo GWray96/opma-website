@@ -34,9 +34,8 @@ const config: Config = {
         neutral: '#0F172A',      // Alias for surface-900
       },
       fontFamily: {
-        display: ['var(--font-outfit)', 'system-ui', 'sans-serif'],
-        body: ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
-        jakarta: ['var(--font-outfit)', 'system-ui', 'sans-serif'], // Alias for display
+        sora: ['var(--font-sora)', 'system-ui', 'sans-serif'],
+        inter: ['var(--font-inter)', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         'display-xl': ['4.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
@@ -84,7 +83,61 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addComponents }) {
+      addComponents({
+        '.btn': {
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '0.75rem 1.5rem',
+          borderRadius: '0.5rem',
+          fontFamily: 'var(--font-sora), system-ui, sans-serif',
+          fontWeight: '500',
+          transition: 'all 0.2s',
+        },
+        '.btn-primary': {
+          backgroundColor: '#0F62FE',
+          color: 'white',
+          boxShadow: '0px 2px 12px rgba(0, 0, 0, 0.08)',
+          '&:hover': {
+            backgroundColor: 'rgba(15, 98, 254, 0.9)',
+            boxShadow: '0px 4px 16px rgba(0, 0, 0, 0.12)',
+          },
+        },
+        '.btn-secondary': {
+          backgroundColor: '#7F45FF',
+          color: 'white',
+          boxShadow: '0px 2px 12px rgba(0, 0, 0, 0.08)',
+          '&:hover': {
+            backgroundColor: 'rgba(127, 69, 255, 0.9)',
+            boxShadow: '0px 4px 16px rgba(0, 0, 0, 0.12)',
+          },
+        },
+        '.btn-outline': {
+          border: '2px solid #E2E8F0',
+          color: '#1E293B',
+          '&:hover': {
+            borderColor: '#1E293B',
+            backgroundColor: '#1E293B',
+            color: 'white',
+          },
+        },
+        '.card': {
+          backgroundColor: 'white',
+          borderRadius: '0.5rem',
+          boxShadow: '0px 2px 12px rgba(0, 0, 0, 0.08)',
+          padding: '1.5rem',
+        },
+        '.glass': {
+          backgroundColor: 'rgba(255, 255, 255, 0.1)',
+          backdropFilter: 'blur(4px)',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+          borderRadius: '0.5rem',
+        },
+      })
+    }
+  ],
   safelist: [
     // Surface colors
     'bg-surface-50',
@@ -118,9 +171,8 @@ const config: Config = {
     'hover:bg-primary',
     'hover:bg-primary/90',
     // Font family classes
-    'font-body',
-    'font-display',
-    'font-jakarta',
+    'font-sora',
+    'font-inter',
     // Shadow classes
     'shadow-soft',
     'shadow-medium',
@@ -131,6 +183,13 @@ const config: Config = {
     'to-accent/5',
     'via-surface-light/50',
     'to-surface-light',
+    // Component classes
+    'btn',
+    'btn-primary',
+    'btn-secondary',
+    'btn-outline',
+    'card',
+    'glass',
   ],
 }
 
