@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { FiChevronDown } from 'react-icons/fi';
 
 export const Navbar = () => {
+  const [isInsightsOpen, setIsInsightsOpen] = useState(false);
+
   const navItems = [
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
     { label: 'Services', href: '/services' },
     { label: 'Case Studies', href: '/case-studies' },
-    { label: 'Resources', href: '/resources' },
     { label: 'Contact', href: '/contact' },
+  ];
+
+  const insightsItems = [
+    { label: 'Blog', href: '/blog' },
+    { label: 'Resources', href: '/resources' },
   ];
 
   return (
@@ -30,6 +37,40 @@ export const Navbar = () => {
                 {item.label}
               </Link>
             ))}
+            
+            {/* Insights Dropdown */}
+            <div className="relative">
+              <button
+                className="flex items-center text-gray-600 hover:text-blue-600 transition-colors"
+                onMouseEnter={() => setIsInsightsOpen(true)}
+                onMouseLeave={() => setIsInsightsOpen(false)}
+              >
+                Insights
+                <FiChevronDown className="ml-1" />
+              </button>
+              
+              {isInsightsOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute top-full left-0 mt-1 w-48 bg-white rounded-md shadow-lg py-1 z-50"
+                  onMouseEnter={() => setIsInsightsOpen(true)}
+                  onMouseLeave={() => setIsInsightsOpen(false)}
+                >
+                  {insightsItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </div>
           </div>
 
           <button
