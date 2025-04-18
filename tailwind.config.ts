@@ -78,6 +78,19 @@ const config: Config = {
     },
   },
   plugins: [],
+  safelist: [
+    'bg-surface-50',
+    'text-surface-900',
+    'font-body',
+    'font-display',
+    'bg-brand-primary',
+    'bg-brand-secondary',
+    'border-surface-200',
+    'border-surface-800',
+    'text-surface-800',
+    'shadow-soft',
+    'shadow-medium',
+  ],
 }
 
 export default config 
