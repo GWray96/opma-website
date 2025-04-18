@@ -19,6 +19,7 @@ export const Navbar = () => {
   const insightsItems = [
     { label: 'Blog', href: '/blog' },
     { label: 'Resources', href: '/resources' },
+    { label: 'FAQs', href: '/faq' },
   ];
 
   return (
