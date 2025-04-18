@@ -65,7 +65,8 @@ export const FAQAccordion = () => {
   const [openItems, setOpenItems] = useState<string[]>([]);
   const [activeCategory, setActiveCategory] = useState<string>('All');
 
-  const categories = ['All', ...new Set(faqItems.map(item => item.category))];
+  // Get unique categories using Array methods instead of Set
+  const categories = ['All', ...Array.from(new Set(faqItems.map(item => item.category)))];
 
   const toggleItem = (id: string) => {
     setOpenItems(prev => 
