@@ -22,12 +22,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${jakarta.variable} font-sans`}>
+    <html lang="en" className="bg-surface-light">
+      <body className={`${inter.variable} ${jakarta.variable} font-sans text-neutral min-h-screen`}>
         <Navbar />
-        <div className="min-h-screen pt-16">
+        <main className="min-h-screen">
           {children}
-        </div>
+        </main>
         <Footer />
       </body>
     </html>
