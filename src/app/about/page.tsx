@@ -1,3 +1,4 @@
+import React from 'react';
 import FounderStory from './components/FounderStory'
 import ValuesSection from './components/ValuesSection'
 
