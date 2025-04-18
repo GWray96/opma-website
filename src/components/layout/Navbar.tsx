@@ -6,56 +6,28 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronDown, FiMenu, FiX } from 'react-icons/fi';
 import { usePathname } from 'next/navigation';
 
-const DrawCircle = () => (
-  <svg
-    className="absolute w-[calc(100%+2rem)] h-[calc(100%+1.5rem)] pointer-events-none"
-    style={{ 
-      left: '-1rem',
-      top: '-0.75rem'
-    }}
-    viewBox="0 0 100 60"
+const NavLink = ({ href, children, isActive, onClick = () => {} }) => (
+  <Link
+    href={href}
+    className={`relative group ${isActive ? 'text-blue-600' : 'text-gray-700'}`}
+    onClick={onClick}
   >
-    <motion.path
-      d="M 20,30 
-         C 20,18 28,12 35,10 
-         C 42,8 58,8 65,10 
-         C 72,12 80,18 80,30 
-         C 80,42 72,48 65,50 
-         C 58,52 42,52 35,50 
-         C 28,48 20,42 20,30 
-         M 20,30 
-         C 20,28 21,26 22,25"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="text-blue-600/70"
-      initial={{ pathLength: 0 }}
-      animate={{ pathLength: 1 }}
-      transition={{
-        duration: 1.2,
-        ease: [0.4, 0, 0.2, 1]
-      }}
-      strokeDasharray="4 2"
-    />
-    <motion.path
-      d="M 19,32 
-         C 19,35 22,38 24,40"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.2"
-      strokeLinecap="round"
-      className="text-blue-600/70"
-      initial={{ pathLength: 0 }}
-      animate={{ pathLength: 1 }}
-      transition={{
-        duration: 0.3,
-        delay: 0.8,
-        ease: "easeOut"
-      }}
-    />
-  </svg>
+    <span className="relative px-3 py-2 block transition-colors duration-300 rounded-md group-hover:text-blue-600">
+      {children}
+      <motion.div
+        className="absolute bottom-0 left-0 h-0.5 w-full bg-blue-600 origin-left"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: isActive ? 1 : 0 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute inset-0 bg-blue-50 rounded-md -z-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isActive ? 0.5 : 0 }}
+        transition={{ duration: 0.3 }}
+      />
+    </span>
+  </Link>
 );
 
 export const Navbar = () => {
@@ -64,19 +36,20 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 10);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile menu when pathname changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setIsInsightsOpen(false);
+  }, [pathname]);
 
   const navItems = [
     { label: 'About', href: '/about' },
@@ -99,105 +72,116 @@ export const Navbar = () => {
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <motion.header 
+      className={`fixed top-0 left-0 right-0 z-50 ${
         scrolled 
           ? 'bg-white/90 backdrop-blur-md shadow-md py-2' 
           : 'bg-white/80 backdrop-blur-sm py-4'
       }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link 
             href="/" 
-            className={`flex items-center space-x-2 group relative ${isActive('/') ? 'text-blue-600' : ''}`}
+            className="flex items-center space-x-2 group"
           >
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:to-indigo-700 transition-all duration-300 relative px-4 py-2">
+            <motion.span 
+              className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent relative px-3 py-2"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+            >
               OPMA
-              {isActive('/') && <DrawCircle />}
-            </span>
+            </motion.span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
-              <Link 
+              <NavLink 
                 key={item.href} 
                 href={item.href}
-                className={`text-gray-700 hover:text-blue-600 transition-colors font-medium relative ${
-                  isActive(item.href) ? 'text-blue-600' : ''
-                }`}
+                isActive={isActive(item.href)}
               >
-                <span className="relative px-4 py-2 block">
-                  {item.label}
-                  {isActive(item.href) && <DrawCircle />}
-                </span>
-              </Link>
+                {item.label}
+              </NavLink>
             ))}
             
             {/* Insights Dropdown */}
             <div className="relative">
-              <button
-                className={`flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium group relative ${
-                  insightsItems.some(item => isActive(item.href)) ? 'text-blue-600' : ''
+              <motion.button
+                className={`flex items-center font-medium group relative px-3 py-2 ${
+                  insightsItems.some(item => isActive(item.href)) ? 'text-blue-600' : 'text-gray-700'
                 }`}
                 onMouseEnter={() => setIsInsightsOpen(true)}
                 onMouseLeave={() => setIsInsightsOpen(false)}
+                whileHover={{ color: '#2563eb' }}
               >
-                <span className="relative px-4 py-2 block">
+                <span className="flex items-center">
                   Insights
-                  <FiChevronDown className={`ml-1 inline-block transition-transform duration-200 ${isInsightsOpen ? 'rotate-180' : ''}`} />
-                  {insightsItems.some(item => isActive(item.href)) && <DrawCircle />}
+                  <motion.div
+                    animate={{ rotate: isInsightsOpen ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <FiChevronDown className="ml-1" />
+                  </motion.div>
                 </span>
-              </button>
+              </motion.button>
               
               <AnimatePresence>
                 {isInsightsOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg py-2 z-50 border border-gray-100"
+                    className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg py-2 border border-gray-100"
                     onMouseEnter={() => setIsInsightsOpen(true)}
                     onMouseLeave={() => setIsInsightsOpen(false)}
                   >
                     {insightsItems.map((item) => (
-                      <Link
+                      <NavLink
                         key={item.href}
                         href={item.href}
-                        className={`block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors relative ${
-                          isActive(item.href) ? 'text-blue-600 bg-blue-50' : ''
-                        }`}
+                        isActive={isActive(item.href)}
                       >
                         {item.label}
-                      </Link>
+                      </NavLink>
                     ))}
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            <Link
-              href="/contact"
-              className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md"
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              Get Started
-            </Link>
+              <Link
+                href="/contact"
+                className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md"
+              >
+                Get Started
+              </Link>
+            </motion.div>
           </nav>
 
           {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden text-gray-700 hover:text-blue-600 transition-colors"
+          <motion.button 
+            className="md:hidden text-gray-700 hover:text-blue-600 transition-colors p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
           >
             {isMobileMenuOpen ? (
               <FiX className="h-6 w-6" />
             ) : (
               <FiMenu className="h-6 w-6" />
             )}
-          </button>
+          </motion.button>
         </div>
       </div>
 
@@ -208,35 +192,63 @@ export const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-white border-t border-gray-100"
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
           >
-            <div className="max-w-7xl mx-auto px-4 py-4 space-y-4">
+            <motion.div 
+              className="max-w-7xl mx-auto px-4 py-4 space-y-2"
+              variants={{
+                open: {
+                  transition: {
+                    staggerChildren: 0.07,
+                    delayChildren: 0.2
+                  }
+                }
+              }}
+              initial="closed"
+              animate="open"
+            >
               {navItems.map((item) => (
-                <Link 
-                  key={item.href} 
-                  href={item.href}
-                  className={`block text-gray-700 hover:text-blue-600 transition-colors font-medium py-2 px-4 relative ${
-                    isActive(item.href) ? 'text-blue-600' : ''
-                  }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                <motion.div
+                  key={item.href}
+                  variants={{
+                    closed: { x: -20, opacity: 0 },
+                    open: { x: 0, opacity: 1 }
+                  }}
                 >
-                  {item.label}
-                  {isActive(item.href) && <DrawCircle />}
-                </Link>
+                  <NavLink 
+                    href={item.href}
+                    isActive={isActive(item.href)}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </NavLink>
+                </motion.div>
               ))}
               
               {/* Mobile Insights Dropdown */}
-              <div className="py-2">
+              <motion.div 
+                className="py-2"
+                variants={{
+                  closed: { x: -20, opacity: 0 },
+                  open: { x: 0, opacity: 1 }
+                }}
+              >
                 <button
-                  className={`flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium px-4 relative ${
-                    insightsItems.some(item => isActive(item.href)) ? 'text-blue-600' : ''
+                  className={`flex items-center font-medium w-full px-3 py-2 ${
+                    insightsItems.some(item => isActive(item.href)) ? 'text-blue-600' : 'text-gray-700'
                   }`}
                   onClick={() => setIsInsightsOpen(!isInsightsOpen)}
                 >
-                  Insights
-                  <FiChevronDown className={`ml-1 transition-transform duration-200 ${isInsightsOpen ? 'rotate-180' : ''}`} />
-                  {insightsItems.some(item => isActive(item.href)) && <DrawCircle />}
+                  <span className="flex items-center">
+                    Insights
+                    <motion.div
+                      animate={{ rotate: isInsightsOpen ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <FiChevronDown className="ml-1" />
+                    </motion.div>
+                  </span>
                 </button>
                 
                 <AnimatePresence>
@@ -249,34 +261,46 @@ export const Navbar = () => {
                       className="pl-4 mt-2 space-y-2"
                     >
                       {insightsItems.map((item) => (
-                        <Link
+                        <motion.div
                           key={item.href}
-                          href={item.href}
-                          className={`block text-gray-600 hover:text-blue-600 transition-colors py-2 px-4 relative ${
-                            isActive(item.href) ? 'text-blue-600' : ''
-                          }`}
-                          onClick={() => setIsMobileMenuOpen(false)}
+                          variants={{
+                            closed: { x: -20, opacity: 0 },
+                            open: { x: 0, opacity: 1 }
+                          }}
                         >
-                          {item.label}
-                          {isActive(item.href) && <DrawCircle />}
-                        </Link>
+                          <NavLink
+                            href={item.href}
+                            isActive={isActive(item.href)}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {item.label}
+                          </NavLink>
+                        </motion.div>
                       ))}
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
               
-              <Link
-                href="/contact"
-                className="block bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors text-center mt-4"
-                onClick={() => setIsMobileMenuOpen(false)}
+              <motion.div
+                className="pt-2"
+                variants={{
+                  closed: { x: -20, opacity: 0 },
+                  open: { x: 0, opacity: 1 }
+                }}
               >
-                Get Started
-              </Link>
-            </div>
+                <Link
+                  href="/contact"
+                  className="block bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors text-center"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Get Started
+                </Link>
+              </motion.div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }; 
