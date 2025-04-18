@@ -4,11 +4,13 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronDown, FiMenu, FiX } from 'react-icons/fi';
+import { usePathname } from 'next/navigation';
 
 export const Navbar = () => {
   const [isInsightsOpen, setIsInsightsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   // Handle scroll effect
   useEffect(() => {
@@ -37,6 +39,13 @@ export const Navbar = () => {
     { label: 'FAQs', href: '/faq' },
   ];
 
+  const isActive = (href: string) => {
+    if (href === '/') {
+      return pathname === href;
+    }
+    return pathname.startsWith(href);
+  };
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -50,11 +59,18 @@ export const Navbar = () => {
           {/* Logo */}
           <Link 
             href="/" 
-            className="flex items-center space-x-2 group"
+            className={`flex items-center space-x-2 group relative ${isActive('/') ? 'text-blue-600' : ''}`}
           >
             <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:to-indigo-700 transition-all duration-300">
               OPMA
             </span>
+            {isActive('/') && (
+              <motion.div
+                layoutId="activeCircle"
+                className="absolute -inset-2 rounded-full border-2 border-blue-600/30 bg-blue-50/50"
+                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+              />
+            )}
           </Link>
 
           {/* Desktop Navigation */}
@@ -63,23 +79,39 @@ export const Navbar = () => {
               <Link 
                 key={item.href} 
                 href={item.href}
-                className="text-gray-700 hover:text-blue-600 transition-colors font-medium relative group"
+                className={`text-gray-700 hover:text-blue-600 transition-colors font-medium relative px-4 py-2 ${
+                  isActive(item.href) ? 'text-blue-600' : ''
+                }`}
               >
                 {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                {isActive(item.href) && (
+                  <motion.div
+                    layoutId="activeCircle"
+                    className="absolute -inset-2 rounded-full border-2 border-blue-600/30 bg-blue-50/50"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
               </Link>
             ))}
             
             {/* Insights Dropdown */}
             <div className="relative">
               <button
-                className="flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium group"
+                className={`flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium group px-4 py-2 relative ${
+                  insightsItems.some(item => isActive(item.href)) ? 'text-blue-600' : ''
+                }`}
                 onMouseEnter={() => setIsInsightsOpen(true)}
                 onMouseLeave={() => setIsInsightsOpen(false)}
               >
                 Insights
                 <FiChevronDown className={`ml-1 transition-transform duration-200 ${isInsightsOpen ? 'rotate-180' : ''}`} />
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                {insightsItems.some(item => isActive(item.href)) && (
+                  <motion.div
+                    layoutId="activeCircle"
+                    className="absolute -inset-2 rounded-full border-2 border-blue-600/30 bg-blue-50/50"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
               </button>
               
               <AnimatePresence>
@@ -97,7 +129,9 @@ export const Navbar = () => {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                        className={`block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors relative ${
+                          isActive(item.href) ? 'text-blue-600 bg-blue-50' : ''
+                        }`}
                       >
                         {item.label}
                       </Link>
@@ -144,7 +178,9 @@ export const Navbar = () => {
                 <Link 
                   key={item.href} 
                   href={item.href}
-                  className="block text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
+                  className={`block text-gray-700 hover:text-blue-600 transition-colors font-medium py-2 px-4 relative ${
+                    isActive(item.href) ? 'text-blue-600 bg-blue-50 rounded-lg' : ''
+                  }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
@@ -154,7 +190,9 @@ export const Navbar = () => {
               {/* Mobile Insights Dropdown */}
               <div className="py-2">
                 <button
-                  className="flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium"
+                  className={`flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium px-4 ${
+                    insightsItems.some(item => isActive(item.href)) ? 'text-blue-600' : ''
+                  }`}
                   onClick={() => setIsInsightsOpen(!isInsightsOpen)}
                 >
                   Insights
@@ -174,7 +212,9 @@ export const Navbar = () => {
                         <Link
                           key={item.href}
                           href={item.href}
-                          className="block text-gray-600 hover:text-blue-600 transition-colors py-1"
+                          className={`block text-gray-600 hover:text-blue-600 transition-colors py-2 px-4 rounded-lg ${
+                            isActive(item.href) ? 'text-blue-600 bg-blue-50' : ''
+                          }`}
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           {item.label}
