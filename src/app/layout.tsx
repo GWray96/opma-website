@@ -1,19 +1,19 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import { Outfit, DM_Sans } from 'next/font/google'
+import { Inter, Sora } from 'next/font/google'
 import { Navbar } from '../components/layout/Navbar'
 import { Footer } from '../components/layout/Footer'
 import './globals.css'
 
-const outfit = Outfit({ 
+const sora = Sora({ 
   subsets: ['latin'],
-  variable: '--font-outfit',
+  variable: '--font-sora',
   display: 'swap',
 })
 
-const dmSans = DM_Sans({ 
+const inter = Inter({ 
   subsets: ['latin'],
-  variable: '--font-dm-sans',
+  variable: '--font-inter',
   display: 'swap',
 })
 
@@ -28,12 +28,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="bg-neutral">
-      <body className={`${outfit.variable} ${dmSans.variable} font-body antialiased bg-neutral text-background`}>
+    <html lang="en" className={`${sora.variable} ${inter.variable}`}>
+      <body>
         <Navbar />
-        <main className="min-h-screen">
-          {children}
-        </main>
+        {children}
         <Footer />
       </body>
     </html>
