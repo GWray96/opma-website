@@ -109,15 +109,16 @@ export const HeroSection = () => {
                 transition={{ delay: 0.5 }}
                 className="flex flex-col md:flex-row items-center md:items-start gap-4 bg-black/20 backdrop-blur-sm p-6 rounded-xl border border-white/10"
               >
-                <div 
-                  className="w-[180px] h-[90px] flex-shrink-0 bg-black rounded-lg flex items-center justify-center"
-                  style={{
-                    backgroundImage: 'url("/images/rich-niche-logo.jpg")',
-                    backgroundSize: 'contain',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat'
-                  }}
-                />
+                <div className="relative w-[180px] h-[90px] flex-shrink-0 bg-black rounded-lg flex items-center justify-center overflow-hidden">
+                  <Image
+                    src="/images/Rich and Niche Logo.png"
+                    alt="Rich + Niche Academy"
+                    width={180}
+                    height={90}
+                    className="object-contain"
+                    priority
+                  />
+                </div>
                 <div className="text-center md:text-left max-w-xl">
                   <p className="text-sm md:text-base text-blue-100">
                     Trained by the <span className="font-semibold text-white">Rich + Niche Academy</span> in cutting-edge Digital Marketing, 
