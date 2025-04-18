@@ -8,23 +8,27 @@ import { usePathname } from 'next/navigation';
 
 const DrawCircle = () => (
   <svg
-    className="absolute -inset-1 w-[calc(100%+0.5rem)] h-[calc(100%+0.5rem)] pointer-events-none"
-    style={{ transform: 'translate(-0.25rem, -0.25rem)' }}
+    className="absolute w-[calc(100%+1.5rem)] h-[calc(100%+0.75rem)] pointer-events-none"
+    style={{ 
+      left: '-0.75rem',
+      top: '-0.375rem'
+    }}
+    viewBox="0 0 120 50"
   >
-    <motion.circle
-      cx="50%"
-      cy="50%"
-      r="45%"
+    <motion.path
+      d="M 15,25 C 15,15 25,5 60,5 C 95,5 105,15 105,25 C 105,35 95,45 60,45 C 25,45 15,35 15,25"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
+      strokeLinecap="round"
       className="text-blue-600/70"
       initial={{ pathLength: 0 }}
       animate={{ pathLength: 1 }}
       transition={{
-        duration: 0.5,
+        duration: 0.8,
         ease: "easeInOut"
       }}
+      strokeDasharray="0 1"
     />
   </svg>
 );
@@ -84,7 +88,7 @@ export const Navbar = () => {
             href="/" 
             className={`flex items-center space-x-2 group relative ${isActive('/') ? 'text-blue-600' : ''}`}
           >
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:to-indigo-700 transition-all duration-300 relative">
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:to-indigo-700 transition-all duration-300 relative px-3">
               OPMA
               {isActive('/') && <DrawCircle />}
             </span>
@@ -100,8 +104,10 @@ export const Navbar = () => {
                   isActive(item.href) ? 'text-blue-600' : ''
                 }`}
               >
-                {item.label}
-                {isActive(item.href) && <DrawCircle />}
+                <span className="relative">
+                  {item.label}
+                  {isActive(item.href) && <DrawCircle />}
+                </span>
               </Link>
             ))}
             
@@ -114,9 +120,11 @@ export const Navbar = () => {
                 onMouseEnter={() => setIsInsightsOpen(true)}
                 onMouseLeave={() => setIsInsightsOpen(false)}
               >
-                Insights
-                <FiChevronDown className={`ml-1 transition-transform duration-200 ${isInsightsOpen ? 'rotate-180' : ''}`} />
-                {insightsItems.some(item => isActive(item.href)) && <DrawCircle />}
+                <span className="relative">
+                  Insights
+                  <FiChevronDown className={`ml-1 inline-block transition-transform duration-200 ${isInsightsOpen ? 'rotate-180' : ''}`} />
+                  {insightsItems.some(item => isActive(item.href)) && <DrawCircle />}
+                </span>
               </button>
               
               <AnimatePresence>
