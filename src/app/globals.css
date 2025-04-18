@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-slate-50 text-surface-900 font-body antialiased;
+    @apply bg-slate-50 text-slate-900 font-body antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -18,15 +18,15 @@
   }
 
   .btn-primary {
-    @apply bg-brand-primary text-white hover:bg-brand-primary/90 shadow-soft hover:shadow-medium;
+    @apply bg-blue-600 text-white hover:bg-blue-700 shadow-soft hover:shadow-medium;
   }
 
   .btn-secondary {
-    @apply bg-brand-secondary text-white hover:bg-brand-secondary/90 shadow-soft hover:shadow-medium;
+    @apply bg-purple-600 text-white hover:bg-purple-700 shadow-soft hover:shadow-medium;
   }
 
   .btn-outline {
-    @apply border-2 border-surface-200 hover:border-surface-800 text-surface-800 hover:bg-surface-800 hover:text-white;
+    @apply border-2 border-slate-200 hover:border-slate-800 text-slate-800 hover:bg-slate-800 hover:text-white;
   }
 
   .card {
