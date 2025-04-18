@@ -27,14 +27,14 @@ export const HeroSection = () => {
               className="text-left space-y-8"
             >
               <div className="space-y-6">
-                <h1 className="font-jakarta font-bold text-4xl md:text-6xl leading-tight text-neutral-DEFAULT">
+                <h1 className="font-heading font-bold text-4xl md:text-6xl leading-tight">
                   Marketing. Automation. AI.
                   <br />
                   <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                     On Demand.
                   </span>
                 </h1>
-                <p className="font-jakarta text-xl md:text-2xl text-neutral-DEFAULT/80">
+                <p className="font-heading text-xl md:text-2xl text-neutral-DEFAULT/80">
                   Like Spotify — but for growing your business.
                 </p>
                 <p className="text-lg md:text-xl text-neutral-DEFAULT/70">
@@ -48,14 +48,14 @@ export const HeroSection = () => {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="font-jakarta font-semibold bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl shadow-soft hover:shadow-hover transition-all"
+                  className="font-heading font-semibold bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl shadow-soft hover:shadow-hover transition-all"
                 >
                   Start Your Subscription
                 </motion.button>
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="font-jakarta font-semibold border-2 border-primary text-primary bg-white/50 backdrop-blur-sm px-8 py-4 rounded-xl hover:bg-primary hover:text-white transition-colors"
+                  className="font-heading font-semibold border-2 border-primary text-primary bg-white/50 backdrop-blur-sm px-8 py-4 rounded-xl hover:bg-primary hover:text-white transition-colors"
                 >
                   Book Your Free Strategy Call
                 </motion.button>
@@ -84,7 +84,7 @@ export const HeroSection = () => {
                   />
                 </div>
                 <p className="text-sm text-neutral-DEFAULT/70">
-                  Trained at <span className="font-semibold text-neutral-DEFAULT">Rich + Niche Academy</span>
+                  Trained at <span className="font-heading font-semibold text-neutral-DEFAULT">Rich + Niche Academy</span>
                 </p>
               </motion.div>
             </motion.div>
