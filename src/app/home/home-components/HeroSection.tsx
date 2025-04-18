@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -34,6 +34,8 @@ const services = [
 ];
 
 export const HeroSection = () => {
+  const [logoError, setLogoError] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-900 to-indigo-900 text-white overflow-hidden py-20">
       {/* Background elements */}
@@ -107,15 +109,24 @@ export const HeroSection = () => {
                 transition={{ delay: 0.5 }}
                 className="flex flex-col md:flex-row items-center md:items-start gap-4 bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10"
               >
-                <div className="relative w-32 h-16 md:w-40 md:h-20 flex-shrink-0">
-                  <Image
-                    src="/images/rich-niche-logo.png"
-                    alt="Rich + Niche Academy"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </div>
+                {!logoError ? (
+                  <div className="relative w-32 h-16 md:w-40 md:h-20 flex-shrink-0 bg-white/5 rounded-lg">
+                    <Image
+                      src="/images/rich-niche-logo.svg"
+                      alt="Rich + Niche Academy"
+                      fill
+                      className="object-contain p-2"
+                      priority
+                      onError={() => setLogoError(true)}
+                    />
+                  </div>
+                ) : (
+                  <div className="w-32 md:w-40 flex-shrink-0 bg-white/5 rounded-lg p-4">
+                    <span className="text-xl font-bold text-white whitespace-nowrap">
+                      RICH + NICHE
+                    </span>
+                  </div>
+                )}
                 <div className="text-center md:text-left">
                   <p className="text-sm md:text-base text-blue-100">
                     Trained by the <span className="font-semibold text-white">Rich + Niche Academy</span> in cutting-edge Digital Marketing, 
