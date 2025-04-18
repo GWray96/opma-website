@@ -1,11 +1,19 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Sora } from 'next/font/google'
 import { Navbar } from '../components/layout/Navbar'
 import { Footer } from '../components/layout/Footer'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter'
+})
+
+const sora = Sora({
+  subsets: ['latin'],
+  variable: '--font-sora'
+})
 
 export const metadata: Metadata = {
   title: 'OPMA - Optimize Your Operations',
@@ -18,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className={`${inter.variable} ${sora.variable}`}>
+      <body className="font-inter">
         <Navbar />
         <div className="min-h-screen pt-16">
           {children}

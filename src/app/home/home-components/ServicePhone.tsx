@@ -52,29 +52,29 @@ const ServiceTrack: React.FC<{
     initial={{ opacity: 0, y: 10 }}
     animate={{ opacity: 1, y: 0 }}
     className={`flex items-center justify-between p-3 rounded-lg transition-all duration-300 hover:bg-white/10 group ${
-      isPlaying ? 'text-green-400' : 'text-white'
+      isPlaying ? 'text-success' : 'text-white'
     }`}
   >
     <div className="flex items-center space-x-4">
-      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-400/20 to-purple-500/20 flex items-center justify-center text-2xl">
+      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-2xl">
         {service.icon}
       </div>
       <div>
-        <h3 className={`font-medium text-base ${isPlaying ? 'text-green-400' : 'text-white'}`}>
+        <h3 className={`font-sora font-medium text-base ${isPlaying ? 'text-success' : 'text-white'}`}>
           {service.title}
         </h3>
-        <p className="text-sm text-gray-400">{service.description}</p>
+        <p className="text-sm text-background/60">{service.description}</p>
       </div>
     </div>
     <div className="flex items-center space-x-4">
-      <span className="text-sm text-gray-400">{service.duration}</span>
+      <span className="text-sm text-background/60">{service.duration}</span>
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         onClick={onPlay}
         className={`p-2 rounded-full ${
           isPlaying 
-            ? 'bg-green-500 text-white' 
+            ? 'bg-success text-neutral' 
             : 'opacity-0 group-hover:opacity-100 bg-white/10 text-white hover:bg-white/20'
         }`}
       >
@@ -94,7 +94,7 @@ export const ServicePhone = () => {
       transition={{ duration: 0.8, delay: 0.2 }}
       className="relative w-full max-w-md mx-auto rounded-2xl overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, #4F46E5 0%, #0EA5E9 100%)',
+        background: 'linear-gradient(135deg, #3F8CFF 0%, #A66EFF 100%)',
       }}
     >
       {/* Header */}
@@ -104,8 +104,8 @@ export const ServicePhone = () => {
             <FiChevronLeft size={24} />
           </button>
           <div>
-            <h2 className="text-xl font-bold text-white">My Collection</h2>
-            <p className="text-sm text-blue-200">Select a service to learn more</p>
+            <h2 className="text-xl font-sora font-bold text-white">My Collection</h2>
+            <p className="text-sm text-background/80">Select a service to learn more</p>
           </div>
         </div>
         <button className="p-2 rounded-full hover:bg-white/10">
