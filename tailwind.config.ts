@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import plugin from 'tailwindcss/plugin'
 
 const config: Config = {
   content: [
@@ -84,7 +85,7 @@ const config: Config = {
     },
   },
   plugins: [
-    function({ addComponents }) {
+    plugin(function({ addComponents }) {
       addComponents({
         '.btn': {
           display: 'inline-flex',
@@ -136,7 +137,7 @@ const config: Config = {
           borderRadius: '0.5rem',
         },
       })
-    }
+    })
   ],
   safelist: [
     // Surface colors
