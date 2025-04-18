@@ -51,16 +51,16 @@ const ServiceTrack: React.FC<{
   <motion.div
     initial={{ opacity: 0, y: 10 }}
     animate={{ opacity: 1, y: 0 }}
-    className={`flex items-center justify-between p-3 rounded-lg transition-all duration-300 hover:bg-neutral/5 group ${
+    className={`flex items-center justify-between p-3 rounded-xl transition-all duration-300 hover:bg-surface-light group ${
       isPlaying ? 'text-success' : 'text-neutral'
     }`}
   >
     <div className="flex items-center space-x-4">
-      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center text-2xl">
+      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center text-2xl">
         {service.icon}
       </div>
       <div>
-        <h3 className={`font-sora font-medium text-base ${isPlaying ? 'text-success' : 'text-neutral'}`}>
+        <h3 className={`font-jakarta font-medium text-base ${isPlaying ? 'text-success' : 'text-neutral'}`}>
           {service.title}
         </h3>
         <p className="text-sm text-neutral/60">{service.description}</p>
@@ -74,7 +74,7 @@ const ServiceTrack: React.FC<{
         onClick={onPlay}
         className={`p-2 rounded-full ${
           isPlaying 
-            ? 'bg-success text-background' 
+            ? 'bg-success text-white shadow-soft' 
             : 'opacity-0 group-hover:opacity-100 bg-primary/10 text-primary hover:bg-primary/20'
         }`}
       >
@@ -92,26 +92,26 @@ export const ServicePhone = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2 }}
-      className="relative w-full max-w-md mx-auto rounded-2xl overflow-hidden bg-background shadow-soft"
+      className="relative w-full max-w-md mx-auto rounded-2xl overflow-hidden bg-white shadow-soft border border-neutral/5"
     >
       {/* Header */}
       <div className="p-4 flex items-center justify-between bg-gradient-to-r from-primary to-accent">
         <div className="flex items-center space-x-4">
-          <button className="p-2 rounded-full bg-background/20 text-background">
+          <button className="p-2 rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors">
             <FiChevronLeft size={24} />
           </button>
           <div>
-            <h2 className="text-xl font-sora font-bold text-background">My Collection</h2>
-            <p className="text-sm text-background/90">Select a service to learn more</p>
+            <h2 className="text-xl font-jakarta font-bold text-white">My Collection</h2>
+            <p className="text-sm text-white/90">Select a service to learn more</p>
           </div>
         </div>
-        <button className="p-2 rounded-full hover:bg-background/10">
-          <FiMoreVertical size={24} className="text-background" />
+        <button className="p-2 rounded-full hover:bg-white/10 transition-colors">
+          <FiMoreVertical size={24} className="text-white" />
         </button>
       </div>
 
       {/* Service Tracks */}
-      <div className="p-4">
+      <div className="p-4 bg-white">
         <div className="space-y-2">
           {services.map((service) => (
             <ServiceTrack

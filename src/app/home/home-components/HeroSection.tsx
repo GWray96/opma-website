@@ -7,12 +7,12 @@ import { ServicePhone } from './ServicePhone';
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-background text-neutral overflow-hidden py-20">
+    <section className="relative min-h-screen flex items-center justify-center bg-surface-light text-neutral overflow-hidden py-20">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black opacity-70"></div>
-        <div className="absolute inset-0 bg-[url('/images/hero-bg.jpg')] bg-cover bg-center filter blur-sm"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neutral/50 to-neutral/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5"></div>
+        <div className="absolute inset-0 bg-[url('/images/hero-bg.jpg')] bg-cover bg-center opacity-5"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-surface-light/50 to-surface-light"></div>
       </div>
       
       {/* Content */}
@@ -27,11 +27,14 @@ export const HeroSection = () => {
               className="text-left space-y-8"
             >
               <div className="space-y-6">
-                <h1 className="font-sora font-bold text-4xl md:text-6xl leading-tight text-neutral">
-                  Marketing. Automation. AI.<br />
-                  <span className="text-3xl md:text-5xl text-primary">On Demand.</span>
+                <h1 className="font-jakarta font-bold text-4xl md:text-6xl leading-tight">
+                  Marketing. Automation. AI.
+                  <br />
+                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                    On Demand.
+                  </span>
                 </h1>
-                <p className="font-sora text-xl md:text-2xl text-neutral/80">
+                <p className="font-jakarta text-xl md:text-2xl text-neutral/80">
                   Like Spotify — but for growing your business.
                 </p>
                 <p className="text-lg md:text-xl text-neutral/70">
@@ -45,21 +48,21 @@ export const HeroSection = () => {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="font-sora font-semibold bg-primary text-background px-8 py-4 rounded-lg shadow-soft hover:shadow-hover transition-all"
+                  className="font-jakarta font-semibold bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl shadow-soft hover:shadow-hover transition-all"
                 >
                   Start Your Subscription
                 </motion.button>
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="font-sora font-semibold border-2 border-primary text-primary bg-transparent px-8 py-4 rounded-lg hover:bg-primary hover:text-background transition-colors"
+                  className="font-jakarta font-semibold border-2 border-primary text-primary bg-white/50 backdrop-blur-sm px-8 py-4 rounded-xl hover:bg-primary hover:text-white transition-colors"
                 >
                   Book Your Free Strategy Call
                 </motion.button>
               </div>
 
               {/* Risk Reversal */}
-              <p className="text-neutral/60">
+              <p className="text-neutral/60 font-medium">
                 No contracts. Cancel anytime. Full flexibility.
               </p>
 
@@ -68,7 +71,7 @@ export const HeroSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="flex items-center gap-4 bg-neutral/5 backdrop-blur-sm p-4 rounded-xl border border-neutral/10 w-fit"
+                className="flex items-center gap-4 bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-neutral/5 shadow-soft w-fit"
               >
                 <div className="relative w-[120px] h-[60px] flex-shrink-0 bg-white rounded-lg flex items-center justify-center overflow-hidden">
                   <Image

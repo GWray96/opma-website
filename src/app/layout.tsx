@@ -1,23 +1,19 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import { Inter, Sora } from 'next/font/google'
+import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
 import { Navbar } from '../components/layout/Navbar'
 import { Footer } from '../components/layout/Footer'
 import './globals.css'
 
-const inter = Inter({ 
-  subsets: ['latin'],
-  variable: '--font-inter'
-})
-
-const sora = Sora({
-  subsets: ['latin'],
-  variable: '--font-sora'
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const jakarta = Plus_Jakarta_Sans({ 
+  subsets: ['latin'], 
+  variable: '--font-jakarta'
 })
 
 export const metadata: Metadata = {
-  title: 'OPMA - Optimize Your Operations',
-  description: 'We help businesses streamline processes, reduce costs, and improve efficiency through data-driven solutions.',
+  title: 'OPMA - On-Demand Marketing Automation',
+  description: 'Your all-in-one marketing automation subscription service',
 }
 
 export default function RootLayout({
@@ -26,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${sora.variable}`}>
-      <body className="font-inter">
+    <html lang="en">
+      <body className={`${inter.variable} ${jakarta.variable} font-sans`}>
         <Navbar />
         <div className="min-h-screen pt-16">
           {children}
