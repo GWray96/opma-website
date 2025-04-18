@@ -19,6 +19,11 @@ const config: Config = {
           50: '#F8FAFC',          // Lightest
           100: '#F1F5F9',         // Lighter
           200: '#E2E8F0',         // Light
+          300: '#CBD5E1',         // Light gray
+          400: '#94A3B8',         // Medium gray
+          500: '#64748B',         // Gray
+          600: '#475569',         // Dark gray
+          700: '#334155',         // Darker gray
           800: '#1E293B',         // Dark
           900: '#0F172A',         // Darkest
         },
