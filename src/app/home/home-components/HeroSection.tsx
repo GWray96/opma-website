@@ -107,27 +107,18 @@ export const HeroSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="flex flex-col md:flex-row items-center md:items-start gap-4 bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10"
+                className="flex flex-col md:flex-row items-center md:items-start gap-4 bg-black/20 backdrop-blur-sm p-6 rounded-xl border border-white/10"
               >
-                {!logoError ? (
-                  <div className="relative w-32 h-16 md:w-40 md:h-20 flex-shrink-0 bg-white/5 rounded-lg">
-                    <Image
-                      src="/images/rich-niche-logo.svg"
-                      alt="Rich + Niche Academy"
-                      fill
-                      className="object-contain p-2"
-                      priority
-                      onError={() => setLogoError(true)}
-                    />
-                  </div>
-                ) : (
-                  <div className="w-32 md:w-40 flex-shrink-0 bg-white/5 rounded-lg p-4">
-                    <span className="text-xl font-bold text-white whitespace-nowrap">
-                      RICH + NICHE
-                    </span>
-                  </div>
-                )}
-                <div className="text-center md:text-left">
+                <div 
+                  className="w-[180px] h-[90px] flex-shrink-0 bg-black rounded-lg flex items-center justify-center"
+                  style={{
+                    backgroundImage: 'url("/images/rich-niche-logo.jpg")',
+                    backgroundSize: 'contain',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat'
+                  }}
+                />
+                <div className="text-center md:text-left max-w-xl">
                   <p className="text-sm md:text-base text-blue-100">
                     Trained by the <span className="font-semibold text-white">Rich + Niche Academy</span> in cutting-edge Digital Marketing, 
                     AI, and Automation systems. Backed by 10+ years of hands-on experience.
