@@ -1,13 +1,15 @@
+import React from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { Navbar } from '../components/layout/Navbar'
+import { Footer } from '../components/layout/Footer'
 import './globals.css'
-import React from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'OPMA - Digital Marketing, AI & Automation Agency',
-  description: 'We help busy entrepreneurs and business owners reclaim their time through done-for-you digital marketing, AI system setup, and workflow automations.',
+  title: 'OPMA - Optimize Your Operations',
+  description: 'We help businesses streamline processes, reduce costs, and improve efficiency through data-driven solutions.',
 }
 
 export default function RootLayout({
@@ -18,7 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {children}
+        <Navbar />
+        <div className="min-h-screen pt-16">
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   )
