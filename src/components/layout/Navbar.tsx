@@ -1,12 +1,28 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { FiChevronDown } from 'react-icons/fi';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiChevronDown, FiMenu, FiX } from 'react-icons/fi';
 
 export const Navbar = () => {
   const [isInsightsOpen, setIsInsightsOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navItems = [
     { label: 'About', href: '/about' },
@@ -22,72 +38,164 @@ export const Navbar = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
-      <nav className="container mx-auto px-4 py-4">
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'bg-white/90 backdrop-blur-md shadow-md py-2' 
+          : 'bg-white/80 backdrop-blur-sm py-4'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-blue-600">OPMA</span>
+          {/* Logo */}
+          <Link 
+            href="/" 
+            className="flex items-center space-x-2 group"
+          >
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:to-indigo-700 transition-all duration-300">
+              OPMA
+            </span>
           </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link 
                 key={item.href} 
                 href={item.href}
-                className="text-gray-600 hover:text-blue-600 transition-colors"
+                className="text-gray-700 hover:text-blue-600 transition-colors font-medium relative group"
               >
                 {item.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
             
             {/* Insights Dropdown */}
             <div className="relative">
               <button
-                className="flex items-center text-gray-600 hover:text-blue-600 transition-colors"
+                className="flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium group"
                 onMouseEnter={() => setIsInsightsOpen(true)}
                 onMouseLeave={() => setIsInsightsOpen(false)}
               >
                 Insights
-                <FiChevronDown className="ml-1" />
+                <FiChevronDown className={`ml-1 transition-transform duration-200 ${isInsightsOpen ? 'rotate-180' : ''}`} />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
               </button>
               
-              {isInsightsOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute top-full left-0 mt-1 w-48 bg-white rounded-md shadow-lg py-1 z-50"
-                  onMouseEnter={() => setIsInsightsOpen(true)}
-                  onMouseLeave={() => setIsInsightsOpen(false)}
-                >
-                  {insightsItems.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </motion.div>
-              )}
+              <AnimatePresence>
+                {isInsightsOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg py-2 z-50 border border-gray-100"
+                    onMouseEnter={() => setIsInsightsOpen(true)}
+                    onMouseLeave={() => setIsInsightsOpen(false)}
+                  >
+                    {insightsItems.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-          </div>
 
-          <button
-            className="hidden md:block bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            <Link
+              href="/contact"
+              className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md"
+            >
+              Get Started
+            </Link>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden text-gray-700 hover:text-blue-600 transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            Get Started
-          </button>
-
-          <button className="md:hidden text-gray-600">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+            {isMobileMenuOpen ? (
+              <FiX className="h-6 w-6" />
+            ) : (
+              <FiMenu className="h-6 w-6" />
+            )}
           </button>
         </div>
-      </nav>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-white border-t border-gray-100"
+          >
+            <div className="max-w-7xl mx-auto px-4 py-4 space-y-4">
+              {navItems.map((item) => (
+                <Link 
+                  key={item.href} 
+                  href={item.href}
+                  className="block text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              
+              {/* Mobile Insights Dropdown */}
+              <div className="py-2">
+                <button
+                  className="flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium"
+                  onClick={() => setIsInsightsOpen(!isInsightsOpen)}
+                >
+                  Insights
+                  <FiChevronDown className={`ml-1 transition-transform duration-200 ${isInsightsOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                <AnimatePresence>
+                  {isInsightsOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="pl-4 mt-2 space-y-2"
+                    >
+                      {insightsItems.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block text-gray-600 hover:text-blue-600 transition-colors py-1"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+              
+              <Link
+                href="/contact"
+                className="block bg-blue-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors text-center mt-4"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Get Started
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }; 
