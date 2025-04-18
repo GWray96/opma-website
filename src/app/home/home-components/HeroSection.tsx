@@ -7,7 +7,7 @@ import { ServicePhone } from './ServicePhone';
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-surface-light text-neutral overflow-hidden py-20">
+    <section className="relative min-h-screen flex items-center justify-center bg-surface-light text-neutral-DEFAULT overflow-hidden py-20">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5"></div>
@@ -27,17 +27,17 @@ export const HeroSection = () => {
               className="text-left space-y-8"
             >
               <div className="space-y-6">
-                <h1 className="font-jakarta font-bold text-4xl md:text-6xl leading-tight">
+                <h1 className="font-jakarta font-bold text-4xl md:text-6xl leading-tight text-neutral-DEFAULT">
                   Marketing. Automation. AI.
                   <br />
                   <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                     On Demand.
                   </span>
                 </h1>
-                <p className="font-jakarta text-xl md:text-2xl text-neutral/80">
+                <p className="font-jakarta text-xl md:text-2xl text-neutral-DEFAULT/80">
                   Like Spotify — but for growing your business.
                 </p>
-                <p className="text-lg md:text-xl text-neutral/70">
+                <p className="text-lg md:text-xl text-neutral-DEFAULT/70">
                   A done-for-you subscription that gives you instant access to digital marketing, 
                   AI tools, and automation systems.
                 </p>
@@ -62,7 +62,7 @@ export const HeroSection = () => {
               </div>
 
               {/* Risk Reversal */}
-              <p className="text-neutral/60 font-medium">
+              <p className="text-neutral-DEFAULT/60 font-medium">
                 No contracts. Cancel anytime. Full flexibility.
               </p>
 
@@ -71,7 +71,7 @@ export const HeroSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="flex items-center gap-4 bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-neutral/5 shadow-soft w-fit"
+                className="flex items-center gap-4 bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-neutral-DEFAULT/5 shadow-soft w-fit"
               >
                 <div className="relative w-[120px] h-[60px] flex-shrink-0 bg-white rounded-lg flex items-center justify-center overflow-hidden">
                   <Image
@@ -83,8 +83,8 @@ export const HeroSection = () => {
                     priority
                   />
                 </div>
-                <p className="text-sm text-neutral/70">
-                  Trained at <span className="font-semibold text-neutral">Rich + Niche Academy</span>
+                <p className="text-sm text-neutral-DEFAULT/70">
+                  Trained at <span className="font-semibold text-neutral-DEFAULT">Rich + Niche Academy</span>
                 </p>
               </motion.div>
             </motion.div>

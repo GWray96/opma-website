@@ -9,14 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#2563EB',    // Rich blue
-        accent: '#7C3AED',     // Vibrant purple
-        neutral: '#1A1A2F',    // Deep blue-gray
-        background: '#FFFFFF',  // Pure white
-        success: '#10B981',    // Emerald green
-        surface: {
-          light: '#F8FAFC',    // Light gray for cards
-          dark: '#1E293B',     // Dark blue-gray
+        'primary': '#2563EB',    // Rich blue
+        'accent': '#7C3AED',     // Vibrant purple
+        'neutral': {
+          DEFAULT: '#1A1A2F',    // Deep blue-gray
+          light: '#F8FAFC',      // Light gray
+          dark: '#1E293B',       // Dark blue-gray
+        },
+        'background': '#FFFFFF',  // Pure white
+        'success': '#10B981',    // Emerald green
+        'surface': {
+          light: '#F8FAFC',      // Light gray for cards
+          dark: '#1E293B',       // Dark blue-gray
         }
       },
       fontFamily: {
