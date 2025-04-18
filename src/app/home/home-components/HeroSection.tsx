@@ -133,14 +133,14 @@ export const HeroSection = () => {
               </div>
             </motion.div>
 
-            {/* Right Column - Phone UI */}
+            {/* Right Column - Service UI */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               className="flex justify-center lg:justify-end items-center w-full h-full"
             >
-              <div className="w-full max-w-[320px]">
+              <div className="w-full">
                 <ServicePhone />
               </div>
             </motion.div>
