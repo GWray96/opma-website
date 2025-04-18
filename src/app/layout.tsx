@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Footer from '@/components/Footer'
+import Footer from '@/components/shared/Footer'
+import Navigation from '@/components/shared/Navigation'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -40,6 +41,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} antialiased`}>
         <div className="flex min-h-screen flex-col">
+          <Navigation />
           <main className="flex-grow">{children}</main>
           <Footer />
         </div>
