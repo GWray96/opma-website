@@ -9,15 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#3F8CFF',    // Primary Blue
-        accent: '#A66EFF',     // Electric Purple
-        neutral: '#1C1C1E',    // Charcoal Gray
-        background: '#F9FAFB', // Cool White
-        success: '#2DE3B6',    // Mint Green
+        primary: '#2563EB',    // Rich blue
+        accent: '#7C3AED',     // Vibrant purple
+        neutral: '#1A1A2F',    // Deep blue-gray
+        background: '#FFFFFF',  // Pure white
+        success: '#10B981',    // Emerald green
+        surface: {
+          light: '#F8FAFC',    // Light gray for cards
+          dark: '#1E293B',     // Dark blue-gray
+        }
       },
       fontFamily: {
-        sora: ['Sora', 'sans-serif'],
-        inter: ['Inter', 'sans-serif'],
+        sans: ['var(--font-inter)', 'system-ui'],
+        jakarta: ['var(--font-jakarta)', 'system-ui'],
       },
       borderRadius: {
         DEFAULT: '0.5rem',
@@ -25,9 +29,12 @@ const config: Config = {
         'xl': '1.5rem',
       },
       boxShadow: {
-        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        'hover': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        'soft': '0 4px 24px -4px rgba(0, 0, 0, 0.08)',
+        'hover': '0 8px 32px -4px rgba(0, 0, 0, 0.12)',
       },
+      backdropBlur: {
+        'xs': '2px',
+      }
     },
   },
   plugins: [],
