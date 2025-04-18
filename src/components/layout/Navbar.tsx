@@ -6,6 +6,29 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronDown, FiMenu, FiX } from 'react-icons/fi';
 import { usePathname } from 'next/navigation';
 
+const DrawCircle = () => (
+  <svg
+    className="absolute -inset-1 w-[calc(100%+0.5rem)] h-[calc(100%+0.5rem)] pointer-events-none"
+    style={{ transform: 'translate(-0.25rem, -0.25rem)' }}
+  >
+    <motion.circle
+      cx="50%"
+      cy="50%"
+      r="45%"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      className="text-blue-600/70"
+      initial={{ pathLength: 0 }}
+      animate={{ pathLength: 1 }}
+      transition={{
+        duration: 0.5,
+        ease: "easeInOut"
+      }}
+    />
+  </svg>
+);
+
 export const Navbar = () => {
   const [isInsightsOpen, setIsInsightsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -61,16 +84,10 @@ export const Navbar = () => {
             href="/" 
             className={`flex items-center space-x-2 group relative ${isActive('/') ? 'text-blue-600' : ''}`}
           >
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:to-indigo-700 transition-all duration-300">
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:to-indigo-700 transition-all duration-300 relative">
               OPMA
+              {isActive('/') && <DrawCircle />}
             </span>
-            {isActive('/') && (
-              <motion.div
-                layoutId="activeCircle"
-                className="absolute -inset-2 rounded-full border-2 border-blue-600/30 bg-blue-50/50"
-                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-              />
-            )}
           </Link>
 
           {/* Desktop Navigation */}
@@ -84,13 +101,7 @@ export const Navbar = () => {
                 }`}
               >
                 {item.label}
-                {isActive(item.href) && (
-                  <motion.div
-                    layoutId="activeCircle"
-                    className="absolute -inset-2 rounded-full border-2 border-blue-600/30 bg-blue-50/50"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
+                {isActive(item.href) && <DrawCircle />}
               </Link>
             ))}
             
@@ -105,13 +116,7 @@ export const Navbar = () => {
               >
                 Insights
                 <FiChevronDown className={`ml-1 transition-transform duration-200 ${isInsightsOpen ? 'rotate-180' : ''}`} />
-                {insightsItems.some(item => isActive(item.href)) && (
-                  <motion.div
-                    layoutId="activeCircle"
-                    className="absolute -inset-2 rounded-full border-2 border-blue-600/30 bg-blue-50/50"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
+                {insightsItems.some(item => isActive(item.href)) && <DrawCircle />}
               </button>
               
               <AnimatePresence>
@@ -179,24 +184,26 @@ export const Navbar = () => {
                   key={item.href} 
                   href={item.href}
                   className={`block text-gray-700 hover:text-blue-600 transition-colors font-medium py-2 px-4 relative ${
-                    isActive(item.href) ? 'text-blue-600 bg-blue-50 rounded-lg' : ''
+                    isActive(item.href) ? 'text-blue-600' : ''
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
+                  {isActive(item.href) && <DrawCircle />}
                 </Link>
               ))}
               
               {/* Mobile Insights Dropdown */}
               <div className="py-2">
                 <button
-                  className={`flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium px-4 ${
+                  className={`flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium px-4 relative ${
                     insightsItems.some(item => isActive(item.href)) ? 'text-blue-600' : ''
                   }`}
                   onClick={() => setIsInsightsOpen(!isInsightsOpen)}
                 >
                   Insights
                   <FiChevronDown className={`ml-1 transition-transform duration-200 ${isInsightsOpen ? 'rotate-180' : ''}`} />
+                  {insightsItems.some(item => isActive(item.href)) && <DrawCircle />}
                 </button>
                 
                 <AnimatePresence>
@@ -212,12 +219,13 @@ export const Navbar = () => {
                         <Link
                           key={item.href}
                           href={item.href}
-                          className={`block text-gray-600 hover:text-blue-600 transition-colors py-2 px-4 rounded-lg ${
-                            isActive(item.href) ? 'text-blue-600 bg-blue-50' : ''
+                          className={`block text-gray-600 hover:text-blue-600 transition-colors py-2 px-4 relative ${
+                            isActive(item.href) ? 'text-blue-600' : ''
                           }`}
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           {item.label}
+                          {isActive(item.href) && <DrawCircle />}
                         </Link>
                       ))}
                     </motion.div>
