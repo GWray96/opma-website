@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --background: 255 255 255;
+  --foreground: 26 26 47;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -10,15 +15,35 @@ body {
   min-height: 100vh;
   width: 100%;
   overflow-x: hidden;
+  color: rgb(var(--foreground));
+  background: rgb(var(--background));
 }
 
 @layer base {
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold;
+    @apply font-bold font-jakarta;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }
 
 @layer components {
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20;
+  }
+  
+  .glass-panel-dark {
+    @apply bg-neutral/80 backdrop-blur-sm border border-neutral/20;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+  
   .heading-1 {
     @apply text-4xl md:text-5xl lg:text-6xl font-sans;
   }

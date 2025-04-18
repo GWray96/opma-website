@@ -7,7 +7,7 @@ import { ServicePhone } from './ServicePhone';
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-surface-light text-neutral-DEFAULT overflow-hidden py-20">
+    <section className="relative min-h-screen flex items-center justify-center bg-surface-light overflow-hidden py-20">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5"></div>
@@ -27,17 +27,17 @@ export const HeroSection = () => {
               className="text-left space-y-8"
             >
               <div className="space-y-6">
-                <h1 className="font-heading font-bold text-4xl md:text-6xl leading-tight">
+                <h1 className="font-jakarta font-bold text-4xl md:text-6xl leading-tight">
                   Marketing. Automation. AI.
                   <br />
-                  <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  <span className="gradient-text">
                     On Demand.
                   </span>
                 </h1>
-                <p className="font-heading text-xl md:text-2xl text-neutral-DEFAULT/80">
+                <p className="font-jakarta text-xl md:text-2xl text-neutral/80">
                   Like Spotify — but for growing your business.
                 </p>
-                <p className="text-lg md:text-xl text-neutral-DEFAULT/70">
+                <p className="text-lg md:text-xl text-neutral/70">
                   A done-for-you subscription that gives you instant access to digital marketing, 
                   AI tools, and automation systems.
                 </p>
@@ -48,21 +48,21 @@ export const HeroSection = () => {
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="font-heading font-semibold bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl shadow-soft hover:shadow-hover transition-all"
+                  className="font-jakarta font-semibold bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl shadow-soft hover:shadow-hover transition-all"
                 >
                   Start Your Subscription
                 </motion.button>
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="font-heading font-semibold border-2 border-primary text-primary bg-white/50 backdrop-blur-sm px-8 py-4 rounded-xl hover:bg-primary hover:text-white transition-colors"
+                  className="font-jakarta font-semibold border-2 border-primary text-primary glass-panel px-8 py-4 rounded-xl hover:bg-primary hover:text-white transition-colors"
                 >
                   Book Your Free Strategy Call
                 </motion.button>
               </div>
 
               {/* Risk Reversal */}
-              <p className="text-neutral-DEFAULT/60 font-medium">
+              <p className="text-neutral/60 font-medium">
                 No contracts. Cancel anytime. Full flexibility.
               </p>
 
@@ -71,7 +71,7 @@ export const HeroSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="flex items-center gap-4 bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-neutral-DEFAULT/5 shadow-soft w-fit"
+                className="glass-panel flex items-center gap-4 p-4 rounded-xl w-fit"
               >
                 <div className="relative w-[120px] h-[60px] flex-shrink-0 bg-white rounded-lg flex items-center justify-center overflow-hidden">
                   <Image
@@ -83,8 +83,8 @@ export const HeroSection = () => {
                     priority
                   />
                 </div>
-                <p className="text-sm text-neutral-DEFAULT/70">
-                  Trained at <span className="font-heading font-semibold text-neutral-DEFAULT">Rich + Niche Academy</span>
+                <p className="text-sm text-neutral/70">
+                  Trained at <span className="font-jakarta font-semibold text-neutral">Rich + Niche Academy</span>
                 </p>
               </motion.div>
             </motion.div>
