@@ -1,10 +1,11 @@
 import React from 'react'
+import { PageContainer } from '../../../components/layout/PageContainer'
 import { ServicesSection } from './services-components/ServicesSection'
 
 export default function ServicesPage() {
   return (
-    <main className="w-full min-h-screen bg-white pt-16">
+    <PageContainer>
       <ServicesSection />
-    </main>
+    </PageContainer>
   )
 } 

@@ -7,12 +7,12 @@ import { ServicePhone } from './ServicePhone';
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-surface-50 overflow-hidden py-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-accent/5"></div>
         <div className="absolute inset-0 bg-[url('/images/hero-bg.jpg')] bg-cover bg-center opacity-5"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-surface-50/50 to-surface-50"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neutral/50 to-neutral"></div>
       </div>
       
       {/* Content */}
@@ -26,17 +26,17 @@ export const HeroSection = () => {
             className="text-left space-y-8"
           >
             <div className="space-y-6">
-              <h1 className="font-display font-bold text-4xl md:text-6xl leading-tight text-surface-900">
+              <h1 className="font-display font-bold text-4xl md:text-6xl leading-tight text-background">
                 Marketing. Automation. AI.
                 <br />
                 <span className="bg-gradient-to-r from-brand-primary to-brand-secondary text-transparent bg-clip-text">
                   On Demand.
                 </span>
               </h1>
-              <p className="font-display text-xl md:text-2xl text-surface-900/80">
+              <p className="font-display text-xl md:text-2xl text-background/80">
                 Like Spotify — but for growing your business.
               </p>
-              <p className="text-lg md:text-xl text-surface-900/70">
+              <p className="text-lg md:text-xl text-background/70">
                 A done-for-you subscription that gives you instant access to digital marketing, 
                 AI tools, and automation systems.
               </p>
@@ -61,7 +61,7 @@ export const HeroSection = () => {
             </div>
 
             {/* Risk Reversal */}
-            <p className="text-surface-900/60 font-medium">
+            <p className="text-background/60 font-medium">
               No contracts. Cancel anytime. Full flexibility.
             </p>
 
@@ -82,8 +82,8 @@ export const HeroSection = () => {
                   priority
                 />
               </div>
-              <p className="text-sm text-surface-900/70">
-                Trained at <span className="font-display font-semibold text-surface-900">Rich + Niche Academy</span>
+              <p className="text-sm text-background/70">
+                Trained at <span className="font-display font-semibold text-background">Rich + Niche Academy</span>
               </p>
             </motion.div>
           </motion.div>
