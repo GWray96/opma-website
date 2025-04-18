@@ -14,18 +14,18 @@ body {
 
 @layer base {
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold font-jakarta text-neutral;
+    @apply font-bold text-neutral;
   }
   
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl;
+    @apply text-4xl md:text-5xl lg:text-6xl font-jakarta;
   }
   
   h2 {
-    @apply text-3xl md:text-4xl lg:text-5xl;
+    @apply text-3xl md:text-4xl lg:text-5xl font-jakarta;
   }
   
   h3 {
-    @apply text-2xl md:text-3xl lg:text-4xl;
+    @apply text-2xl md:text-3xl lg:text-4xl font-jakarta;
   }
 } 
