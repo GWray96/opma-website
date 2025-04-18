@@ -28,8 +28,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${outfit.variable} ${dmSans.variable} font-body antialiased`}>
+    <html lang="en" className="bg-neutral">
+      <body className={`${outfit.variable} ${dmSans.variable} font-body antialiased bg-neutral text-background`}>
         <Navbar />
         <main className="min-h-screen">
           {children}
