@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ServicePhone } from './ServicePhone';
 
 interface ServiceCardProps {
   title: string;
@@ -47,100 +48,101 @@ export const HeroSection = () => {
       
       {/* Content */}
       <div className="container mx-auto px-4 z-10">
-        <div className="max-w-6xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
-          >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Marketing. Automation. AI.<br />
-              <span className="text-3xl md:text-5xl text-blue-300">On Demand.</span>
-            </h1>
-            <p className="text-xl md:text-2xl mb-4 text-blue-200">
-              Like Spotify — but for growing your business.
-            </p>
-            <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-blue-100">
-              A done-for-you subscription that gives you instant access to digital marketing, 
-              AI tools, and automation systems — so you can reclaim your time and scale stress-free.
-            </p>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Content */}
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-left"
+            >
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                Marketing. Automation. AI.<br />
+                <span className="text-3xl md:text-5xl text-blue-300">On Demand.</span>
+              </h1>
+              <p className="text-xl md:text-2xl mb-4 text-blue-200">
+                Like Spotify — but for growing your business.
+              </p>
+              <p className="text-lg md:text-xl mb-8 text-blue-100">
+                A done-for-you subscription that gives you instant access to digital marketing, 
+                AI tools, and automation systems — so you can reclaim your time and scale stress-free.
+              </p>
 
-            {/* Service Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 max-w-5xl mx-auto">
-              {services.map((service, index) => (
-                <ServiceCard
-                  key={service.title}
-                  title={service.title}
-                  icon={service.icon}
-                  delay={index * 0.1}
-                />
-              ))}
-            </div>
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:bg-blue-600 transition-colors"
+                >
+                  Start Your Subscription
+                </motion.button>
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="border-2 border-white bg-transparent px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-900 transition-colors"
+                >
+                  Book Your Free Strategy Call
+                </motion.button>
+              </div>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:bg-blue-600 transition-colors"
-              >
-                Start Your Subscription
-              </motion.button>
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="border-2 border-white bg-transparent px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-900 transition-colors"
-              >
-                Book Your Free Strategy Call
-              </motion.button>
-            </div>
+              {/* Risk Reversal */}
+              <p className="text-blue-200 mb-8">
+                No contracts. Cancel anytime. Full flexibility.
+              </p>
 
-            {/* Risk Reversal */}
-            <p className="text-blue-200 mb-8">
-              No contracts. Cancel anytime. Full flexibility.
-            </p>
+              {/* Social Proof */}
+              <div className="space-y-6">
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="flex flex-col md:flex-row items-center md:items-start gap-4 bg-black/20 backdrop-blur-sm p-6 rounded-xl border border-white/10"
+                >
+                  <div className="relative w-[180px] h-[90px] flex-shrink-0 bg-black rounded-lg flex items-center justify-center overflow-hidden">
+                    <Image
+                      src="/images/Rich and Niche Logo.png"
+                      alt="Rich + Niche Academy"
+                      width={180}
+                      height={90}
+                      className="object-contain"
+                      priority
+                    />
+                  </div>
+                  <div className="text-center md:text-left">
+                    <p className="text-sm md:text-base text-blue-100">
+                      Trained by the <span className="font-semibold text-white">Rich + Niche Academy</span> in cutting-edge Digital Marketing, 
+                      AI, and Automation systems. Backed by 10+ years of hands-on experience.
+                    </p>
+                  </div>
+                </motion.div>
 
-            {/* Social Proof */}
-            <div className="flex flex-col items-center space-y-6 max-w-3xl mx-auto">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="flex flex-col md:flex-row items-center md:items-start gap-4 bg-black/20 backdrop-blur-sm p-6 rounded-xl border border-white/10"
-              >
-                <div className="relative w-[180px] h-[90px] flex-shrink-0 bg-black rounded-lg flex items-center justify-center overflow-hidden">
-                  <Image
-                    src="/images/Rich and Niche Logo.png"
-                    alt="Rich + Niche Academy"
-                    width={180}
-                    height={90}
-                    className="object-contain"
-                    priority
-                  />
-                </div>
-                <div className="text-center md:text-left max-w-xl">
-                  <p className="text-sm md:text-base text-blue-100">
-                    Trained by the <span className="font-semibold text-white">Rich + Niche Academy</span> in cutting-edge Digital Marketing, 
-                    AI, and Automation systems. Backed by 10+ years of hands-on experience.
+                {/* Mini Testimonial */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.7 }}
+                  className="bg-white/10 backdrop-blur-lg p-6 rounded-xl border border-white/10"
+                >
+                  <p className="italic text-lg mb-2 text-blue-50">
+                    "Outstanding service from Gareth! He took care of everything, from setting up automations to creating lead magnets. Excited for what we can achieve together 👍 Highly recommend!"
                   </p>
-                </div>
-              </motion.div>
+                  <p className="text-blue-300 font-medium">— Mazin Alneami</p>
+                </motion.div>
+              </div>
+            </motion.div>
 
-              {/* Mini Testimonial */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
-                className="bg-white/10 backdrop-blur-lg p-6 rounded-xl border border-white/10"
-              >
-                <p className="italic text-lg mb-2 text-blue-50">
-                  "Outstanding service from Gareth! He took care of everything, from setting up automations to creating lead magnets. Excited for what we can achieve together 👍 Highly recommend!"
-                </p>
-                <p className="text-blue-300 font-medium">— Mazin Alneami</p>
-              </motion.div>
-            </div>
-          </motion.div>
+            {/* Right Column - Phone UI */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="lg:ml-auto"
+            >
+              <ServicePhone />
+            </motion.div>
+          </div>
         </div>
       </div>
       
