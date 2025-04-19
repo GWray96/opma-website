@@ -28,9 +28,9 @@ const HomeHero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/50 to-slate-900/50"></div>
       </div>
 
-      <div className="relative w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 md:pt-40">
+      <div className="relative w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-40">
         {/* Main Content */}
-        <div className="text-center mt-24 md:mt-0">
+        <div className="text-center mt-12 md:mt-0">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-teal-200 via-purple-200 to-rose-200">
             <span className="md:hidden">
               Marketing. Automation. AI.
@@ -80,7 +80,7 @@ const HomeHero = () => {
           </div>
           
           {/* Mouse Scroll Indicator */}
-          <div className="mouse-icon hidden md:block">
+          <div className="mouse-icon hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2">
             <svg
               width="19"
               height="30"
