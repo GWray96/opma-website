@@ -1,25 +1,13 @@
-import React from 'react'
 import type { Metadata } from 'next'
-import { Inter, Sora } from 'next/font/google'
-import { Navbar } from '../components/layout/Navbar'
-import { Footer } from '../components/layout/Footer'
+import { Inter } from 'next/font/google'
 import './globals.css'
+import Layout from '@/components/Layout'
 
-const sora = Sora({ 
-  subsets: ['latin'],
-  variable: '--font-sora',
-  display: 'swap',
-})
-
-const inter = Inter({ 
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'OPMA - On-Demand Marketing Automation',
-  description: 'Your all-in-one marketing automation subscription service',
+  title: 'OPMA Website',
+  description: 'Official website for OPMA',
 }
 
 export default function RootLayout({
@@ -28,13 +16,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${sora.variable} ${inter.variable}`}>
-      <body>
-        <div className="flex min-h-screen flex-col">
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
+    <html lang="en">
+      <body className={inter.className}>
+        <Layout>{children}</Layout>
       </body>
     </html>
   )
