@@ -32,7 +32,11 @@ const HomeHero = () => {
         {/* Main Content */}
         <div className="text-center mt-24 md:mt-0">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-teal-200 via-purple-200 to-rose-200">
-            <span className="md:hidden">Marketing. Automation. AI. On Demand.</span>
+            <span className="md:hidden">
+              Marketing. Automation. AI.
+              <br />
+              On Demand.
+            </span>
             <span className="hidden md:block">Marketing. Automation. AI. On Demand.</span>
             <span className="block text-2xl md:text-3xl lg:text-4xl mt-3 text-white/90">
               <span className="md:hidden">Like Spotify — but for growing your business.</span>
@@ -76,7 +80,7 @@ const HomeHero = () => {
           </div>
           
           {/* Mouse Scroll Indicator */}
-          <div className="mouse-icon">
+          <div className="mouse-icon hidden md:block">
             <svg
               width="19"
               height="30"
