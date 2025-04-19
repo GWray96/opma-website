@@ -32,17 +32,19 @@ const HomeHero = () => {
         {/* Main Content */}
         <div className="text-center mt-24 md:mt-0">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-teal-200 via-purple-200 to-rose-200">
-            Marketing. Automation. AI. On Demand.
+            <span className="md:hidden">Marketing. Automation. AI. On Demand.</span>
+            <span className="hidden md:block">Marketing. Automation. AI. On Demand.</span>
             <span className="block text-2xl md:text-3xl lg:text-4xl mt-3 text-white/90">
-              Like Spotify — but for growing your business.
+              <span className="md:hidden">Like Spotify — but for growing your business.</span>
+              <span className="hidden md:block">Like Spotify — but for growing your business.</span>
             </span>
           </h1>
-          <h2 className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto mb-4">
-            A done-for-you subscription that gives you instant access to digital marketing, 
-            AI tools, and automation systems — so you can reclaim your time and scale stress-free.
+          <h2 className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto mb-4 hidden md:block">
+            A done-for-you subscription that gives you instant access to digital marketing, AI tools, and automation systems — so you can reclaim your time and scale stress-free.
           </h2>
           <p className="text-base md:text-lg text-white/80 mb-6">
-            All done for you. One monthly subscription.
+            <span className="md:hidden">All done for you. One monthly subscription.</span>
+            <span className="hidden md:block">All done for you. One monthly subscription.</span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <button className="group bg-gradient-to-r from-teal-500 to-purple-500 hover:from-teal-600 hover:to-purple-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-lg hover:shadow-teal-500/25 relative overflow-hidden">
