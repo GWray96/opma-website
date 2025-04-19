@@ -39,21 +39,21 @@ export default function SingleTestimonial({
     },
     large: {
       container: 'max-w-5xl',
-      text: 'text-xl',
-      image: 'w-14 h-14',
+      text: 'text-base md:text-xl',
+      image: 'w-16 h-16 md:w-14 md:h-14',
       name: 'text-lg',
-      role: 'text-base',
+      role: 'text-sm md:text-base',
     },
   };
 
   const currentSize = sizeClasses[size];
 
   return (
-    <div className={`${currentSize.container} mx-auto ${className}`}>
+    <div className={`${currentSize.container} mx-auto px-4 md:px-8 ${className}`}>
       <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-6 md:p-8 border border-white/10 relative">
         {/* Quote Icon */}
-        <div className="absolute top-6 right-8 text-primary-500/20">
-          <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+        <div className="absolute top-4 md:top-6 right-4 md:right-8 text-primary-500/20">
+          <svg className="w-8 h-8 md:w-10 md:h-10" fill="currentColor" viewBox="0 0 24 24">
             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
           </svg>
         </div>
@@ -61,11 +61,11 @@ export default function SingleTestimonial({
         <div className="flex flex-col items-center text-center">
           {/* Rating */}
           {rating && (
-            <div className="flex mb-4">
+            <div className="flex mb-6 md:mb-4">
               {[...Array(5)].map((_, i) => (
                 <svg
                   key={i}
-                  className={`w-5 h-5 ${
+                  className={`w-4 h-4 md:w-5 md:h-5 ${
                     i < rating ? 'text-yellow-400' : 'text-gray-600'
                   }`}
                   fill="currentColor"
@@ -78,13 +78,13 @@ export default function SingleTestimonial({
           )}
 
           {/* Quote Text */}
-          <p className={`${currentSize.text} text-gray-300 mb-6 leading-relaxed font-light italic max-w-3xl mx-auto`}>
+          <p className={`${currentSize.text} text-gray-300 mb-8 md:mb-6 leading-relaxed font-light italic max-w-3xl mx-auto`}>
             "{quote}"
           </p>
 
           {/* Author Info */}
           <div className="flex flex-col items-center">
-            <div className={`relative ${currentSize.image} rounded-full overflow-hidden mb-3 bg-gray-200`}>
+            <div className={`relative ${currentSize.image} rounded-full overflow-hidden mb-4 md:mb-3 bg-gray-200`}>
               <Image
                 src={imageUrl}
                 alt={author}
@@ -92,8 +92,8 @@ export default function SingleTestimonial({
                 className="object-cover grayscale"
               />
             </div>
-            <h4 className={`${currentSize.name} text-white font-semibold mb-1`}>{author}</h4>
-            <p className={`${currentSize.role} text-gray-400`}>{role}</p>
+            <h4 className={`${currentSize.name} text-white font-semibold mb-2 md:mb-1`}>{author}</h4>
+            <p className={`${currentSize.role} text-gray-400 mb-1`}>{role}</p>
             <p className={`${currentSize.role} text-gray-400`}>{company}</p>
           </div>
         </div>
