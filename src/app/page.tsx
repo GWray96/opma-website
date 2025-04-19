@@ -1,7 +1,7 @@
 import HomeHero from './home/home-components/home-hero';
 import SingleTestimonial from '@/components/testimonials/SingleTestimonial';
 import { featuredTestimonial } from '@/components/testimonials/featuredTestimonial';
-import HomePainPoints from './home/home-components/home-pain-points';
+import HomePainPoints from '@/app/home/home-components/home-pain-points';
 
 export default function Home() {
   return (
