@@ -18,18 +18,18 @@ export default function CalculatorPage() {
       </div>
       
       {/* Hero Section with proper spacing */}
-      <div className="relative overflow-hidden pt-28 md:pt-36 pb-8 md:pb-12">
+      <div className="relative overflow-hidden pt-20 sm:pt-24 md:pt-28 lg:pt-36 pb-6 sm:pb-8 md:pb-10 lg:pb-12">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-200 to-purple-200">
-              <span className="md:hidden">
+          <div className="text-center mb-6 sm:mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-200 to-purple-200">
+              <span className="sm:hidden">
                 Save 20+ Hours Weekly:
                 <br />
                 Your Marketing ROI Calculator
               </span>
-              <span className="hidden md:block">Save 20+ Hours Weekly: Your Marketing ROI Calculator</span>
+              <span className="hidden sm:block">Save 20+ Hours Weekly: Your Marketing ROI Calculator</span>
             </h1>
-            <p className="text-xl text-indigo-100 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-indigo-100 max-w-3xl mx-auto px-4 sm:px-0">
               Discover exactly how much time and money you're losing on repetitive tasks. Our calculator shows you the real cost of manual work and how AI automation can transform your marketing efficiency.
             </p>
           </div>
@@ -37,7 +37,7 @@ export default function CalculatorPage() {
       </div>
       
       {/* Calculator Section */}
-      <div className="py-8 md:py-12 pb-16">
+      <div className="py-6 sm:py-8 md:py-10 lg:py-12 pb-12 sm:pb-14 md:pb-16 lg:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ROICalculator />
         </div>
