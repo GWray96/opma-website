@@ -54,15 +54,7 @@ export default function Home() {
       <div className="py-12 md:py-16 bg-gradient-to-b from-slate-900 to-purple-900/20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <VideoTestimonial testimonial={{
-              quote: "",
-              author: "Rich UX",
-              role: "Owner",
-              company: "Rich + Niche",
-              imageUrl: "/images/testimonials/placeholder.jpg",
-              rating: 5,
-              videoUrl: "https://youtube.com/shorts/TrQqcXaLJEE?feature=shared"
-            }} />
+            <VideoTestimonial videoUrl="https://youtube.com/shorts/TrQqcXaLJEE?feature=shared" />
           </div>
         </div>
       </div>
