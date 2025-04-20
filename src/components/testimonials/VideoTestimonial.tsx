@@ -3,7 +3,6 @@
 import React from 'react';
 import { StarIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
-import richUXImage from '../../../public/images/testimonials/RichUXpp.png';
 
 interface VideoTestimonialProps {
   videoUrl: string;
@@ -34,11 +33,12 @@ const VideoTestimonial: React.FC<VideoTestimonialProps> = ({ videoUrl }) => {
           <div className="flex-shrink-0">
             <div className="h-12 w-12 rounded-full overflow-hidden relative bg-gray-200">
               <Image
-                src={richUXImage}
+                src="/images/testimonials/RichUXpp.png"
                 alt="Rich UX"
                 fill
                 sizes="48px"
                 className="object-cover"
+                unoptimized
               />
             </div>
           </div>
