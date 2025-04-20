@@ -32,10 +32,11 @@ const VideoTestimonial: React.FC<VideoTestimonialProps> = ({ videoUrl }) => {
         <div className="flex items-center mb-4">
           <div className="flex-shrink-0">
             <div className="h-12 w-12 rounded-full overflow-hidden relative">
-              <img
-                src="https://i.ibb.co/0jZ3YtL/rich-ux.jpg"
+              <Image
+                src="/images/testimonials/RichUXpp.png"
                 alt="Rich UX"
-                className="object-cover w-full h-full"
+                fill
+                className="object-cover"
               />
             </div>
           </div>
