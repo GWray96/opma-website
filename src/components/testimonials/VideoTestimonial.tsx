@@ -37,7 +37,7 @@ const VideoTestimonial: React.FC<VideoTestimonialProps> = ({ testimonial }) => {
   console.log('VideoTestimonial rendering with:', { testimonial, videoId, embedUrl });
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-4 border-red-500">
+    <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
       <div className="p-6 md:p-8">
         <div className="flex items-center mb-4">
           <div className="flex-shrink-0">
