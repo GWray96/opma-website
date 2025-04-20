@@ -85,21 +85,51 @@ export default function Home() {
       </div>
 
       {/* ROI Calculator Section */}
-      <div className="py-12 md:py-16 bg-gradient-to-b from-slate-900 to-purple-900/20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-white mb-4">Calculate Your Time Savings</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Discover how much time you could save by automating your marketing tasks with AI and outsourcing.
+      <div className="py-16 md:py-20 bg-gradient-to-b from-slate-900 to-purple-900/20 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5"></div>
+          <div className="absolute top-0 -left-4 w-64 h-64 bg-purple-200/10 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+          <div className="absolute top-0 -right-4 w-64 h-64 bg-indigo-200/10 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-200 to-purple-200">
+              Unlock Your Marketing Potential
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8">
+              See exactly how many hours and dollars you're losing to manual tasks. Our calculator reveals your true marketing efficiency potential.
             </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link 
+                href="/calculator" 
+                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 font-medium text-lg shadow-lg hover:shadow-indigo-500/25 transform hover:-translate-y-0.5"
+              >
+                Calculate Your Savings Now →
+              </Link>
+              <p className="text-sm text-gray-400">Takes less than 2 minutes</p>
+            </div>
           </div>
-          <div className="flex justify-center">
-            <Link 
-              href="/calculator" 
-              className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-colors font-medium"
-            >
-              Try the Calculator
-            </Link>
+
+          {/* Trust Indicators */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white mb-2">20+</div>
+              <div className="text-sm text-gray-400">Hours Saved Weekly</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white mb-2">85%</div>
+              <div className="text-sm text-gray-400">Cost Reduction</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white mb-2">3x</div>
+              <div className="text-sm text-gray-400">Faster Execution</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white mb-2">100%</div>
+              <div className="text-sm text-gray-400">Satisfaction Rate</div>
+            </div>
           </div>
         </div>
       </div>
