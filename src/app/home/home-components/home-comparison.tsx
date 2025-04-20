@@ -124,7 +124,7 @@ const HomeComparison = () => {
             <div className="text-center relative">
               <div className="absolute -inset-3 bg-indigo-500/5 rounded-xl -z-10"></div>
               <div className="font-semibold text-indigo-600 text-base md:text-lg">Our Solution</div>
-              <div className="absolute -right-6 -top-6">
+              <div className="absolute -right-6 -top-6 hidden md:block">
                 <div className="bg-indigo-500 text-white text-xs md:text-sm px-3 py-1 rounded-full shadow-lg transform -rotate-12">
                   Recommended
                 </div>
@@ -147,13 +147,6 @@ const HomeComparison = () => {
                   <div className="flex flex-col items-center relative">
                     <div className="text-xs text-indigo-600 font-medium mb-1">Our Solution</div>
                     {point.solution ? <SolutionCheck /> : <CrossIcon />}
-                    {index === 0 && (
-                      <div className="absolute -top-2 -right-2 hidden md:block">
-                        <div className="bg-indigo-500 text-white text-xs px-2 py-0.5 rounded-full shadow-md transform -rotate-12">
-                          Recommended
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </div>
               </div>
