@@ -47,6 +47,9 @@ export default function Home() {
         />
       </div>
       
+      {/* Comparison Section */}
+      <HomeComparison />
+      
       {/* Fourth Testimonial - Video */}
       <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-white via-indigo-50 to-purple-50">
         <div className="container mx-auto px-4">
@@ -63,9 +66,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
-      {/* Comparison Section */}
-      <HomeComparison />
     </div>
   );
 } 
