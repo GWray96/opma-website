@@ -1,6 +1,6 @@
-// Copy of fourthTestimonial.ts to ensure it's found during build
+// Video testimonial from Rich UX
 export const fourthTestimonial = {
-  quote: "Working with Gareth has been a fantastic experience. His dedication to digital marketing and ability to implement effective strategies is impressive. He brings fresh perspectives and a strong work ethic to every project.",
+  videoUrl: "https://www.youtube.com/embed/TrQqcXaLJEE",
   author: "Rich UX",
   role: "Owner",
   company: "Rich + Niche",
