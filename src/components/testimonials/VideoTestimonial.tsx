@@ -17,8 +17,15 @@ interface VideoTestimonialProps {
 }
 
 const VideoTestimonial: React.FC<VideoTestimonialProps> = ({ testimonial }) => {
-  // Extract YouTube video ID from URL
+  // Extract YouTube video ID from URL, including Shorts URLs
   const getYouTubeId = (url: string) => {
+    // Handle YouTube Shorts URLs
+    if (url.includes('/shorts/')) {
+      const shortsMatch = url.match(/\/shorts\/([a-zA-Z0-9_-]+)/);
+      return shortsMatch ? shortsMatch[1] : null;
+    }
+    
+    // Handle regular YouTube URLs
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
     const match = url.match(regExp);
     return match && match[2].length === 11 ? match[2] : null;
@@ -67,7 +74,7 @@ const VideoTestimonial: React.FC<VideoTestimonialProps> = ({ testimonial }) => {
           "{testimonial.quote}"
         </blockquote>
         
-        {embedUrl && (
+        {embedUrl ? (
           <div className="relative pt-[56.25%] w-full overflow-hidden rounded-lg">
             <iframe
               className="absolute top-0 left-0 w-full h-full"
@@ -76,6 +83,11 @@ const VideoTestimonial: React.FC<VideoTestimonialProps> = ({ testimonial }) => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
+          </div>
+        ) : (
+          <div className="bg-gray-100 p-4 rounded-lg text-center">
+            <p className="text-red-500">Video could not be loaded. Please check the URL.</p>
+            <p className="text-sm text-gray-500 mt-2">URL: {testimonial.videoUrl}</p>
           </div>
         )}
       </div>
