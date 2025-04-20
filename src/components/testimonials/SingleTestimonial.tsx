@@ -16,11 +16,24 @@ interface TestimonialProps {
 }
 
 const SingleTestimonial: React.FC<TestimonialProps> = (props) => {
+  // Determine size classes based on the size prop
+  const getSizeClasses = () => {
+    switch (props.size) {
+      case 'sm':
+        return 'max-w-sm';
+      case 'lg':
+        return 'max-w-2xl';
+      case 'md':
+      default:
+        return 'max-w-xl';
+    }
+  };
+
   return (
-    <div className={`bg-white/5 backdrop-blur-lg rounded-3xl p-6 md:p-8 border border-white/10 ${props.className || ''}`}>
+    <div className={`bg-white/5 backdrop-blur-lg rounded-3xl p-4 sm:p-6 md:p-8 border border-white/10 ${getSizeClasses()} mx-auto ${props.className || ''}`}>
       <div className="flex flex-col items-center text-center">
-        <div className="flex items-center mb-6">
-          <div className="h-12 w-12 rounded-full overflow-hidden relative bg-gray-200">
+        <div className="flex items-center mb-4 sm:mb-6">
+          <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-full overflow-hidden relative bg-gray-200">
             <Image
               src={props.imageUrl}
               alt={props.author}
@@ -28,17 +41,17 @@ const SingleTestimonial: React.FC<TestimonialProps> = (props) => {
               className="object-cover grayscale"
             />
           </div>
-          <div className="ml-4 text-left">
-            <h4 className="text-lg font-semibold text-white">{props.author}</h4>
-            <p className="text-sm text-gray-400">{props.role} @ {props.company}</p>
+          <div className="ml-3 sm:ml-4 text-left">
+            <h4 className="text-base sm:text-lg font-semibold text-white">{props.author}</h4>
+            <p className="text-xs sm:text-sm text-gray-400">{props.role} @ {props.company}</p>
           </div>
         </div>
 
-        <div className="flex mb-6">
+        <div className="flex mb-4 sm:mb-6">
           {[...Array(props.rating)].map((_, i) => (
             <svg
               key={i}
-              className="w-5 h-5 text-yellow-400"
+              className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400"
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -58,7 +71,7 @@ const SingleTestimonial: React.FC<TestimonialProps> = (props) => {
             />
           </div>
         ) : (
-          <blockquote className="text-lg text-gray-300 italic">"{props.quote}"</blockquote>
+          <blockquote className="text-base sm:text-lg text-gray-300 italic">"{props.quote}"</blockquote>
         )}
       </div>
     </div>
