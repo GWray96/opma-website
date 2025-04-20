@@ -102,7 +102,6 @@ const HomeComparison = () => {
                   {point.freelancer ? <CheckIcon /> : <CrossIcon />}
                 </div>
                 <div className="flex flex-col items-center relative">
-                  <div className="text-xs text-indigo-600 font-medium mb-1">Our Solution</div>
                   {point.solution ? <SolutionCheck /> : <CrossIcon />}
                 </div>
               </div>
@@ -144,10 +143,7 @@ const HomeComparison = () => {
                 <div className="flex justify-center">{point.traditional ? <CheckIcon /> : <CrossIcon />}</div>
                 <div className="flex justify-center">{point.freelancer ? <CheckIcon /> : <CrossIcon />}</div>
                 <div className="flex justify-center">
-                  <div className="flex flex-col items-center relative">
-                    <div className="text-xs text-indigo-600 font-medium mb-1">Our Solution</div>
-                    {point.solution ? <SolutionCheck /> : <CrossIcon />}
-                  </div>
+                  {point.solution ? <SolutionCheck /> : <CrossIcon />}
                 </div>
               </div>
             ))}
