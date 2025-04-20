@@ -2,12 +2,17 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  
+  // Check if we're on the calculator page
+  const isCalculatorPage = pathname === '/calculator';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,8 +46,10 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled || isMobileMenuOpen
-        ? 'bg-white/80 backdrop-blur-md shadow-md' 
+      isScrolled || isMobileMenuOpen || isCalculatorPage
+        ? isCalculatorPage 
+          ? 'bg-white/90 backdrop-blur-md shadow-md' 
+          : 'bg-white/80 backdrop-blur-md shadow-md'
         : 'bg-transparent md:bg-transparent'
     }`}>
       <div className="container mx-auto px-4">
@@ -56,13 +63,13 @@ const Navbar = () => {
 
           {/* Desktop Navigation - Centered */}
           <div className="hidden md:flex items-center justify-center flex-1 space-x-8">
-            <Link href="/about" className="text-gray-800 hover:text-purple-600 transition-colors">
+            <Link href="/about" className={`${isCalculatorPage ? 'text-gray-800' : 'text-gray-800'} hover:text-purple-600 transition-colors`}>
               About
             </Link>
-            <Link href="/menu" className="text-gray-800 hover:text-purple-600 transition-colors">
+            <Link href="/menu" className={`${isCalculatorPage ? 'text-gray-800' : 'text-gray-800'} hover:text-purple-600 transition-colors`}>
               Menu
             </Link>
-            <Link href="/subscription" className="text-gray-800 hover:text-purple-600 transition-colors">
+            <Link href="/subscription" className={`${isCalculatorPage ? 'text-gray-800' : 'text-gray-800'} hover:text-purple-600 transition-colors`}>
               Subscription
             </Link>
             
@@ -70,7 +77,7 @@ const Navbar = () => {
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => toggleDropdown('insights')}
-                className="text-gray-800 hover:text-purple-600 transition-colors flex items-center"
+                className={`${isCalculatorPage ? 'text-gray-800' : 'text-gray-800'} hover:text-purple-600 transition-colors flex items-center`}
               >
                 Insights
                 <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -96,27 +103,46 @@ const Navbar = () => {
               )}
             </div>
 
-            <Link href="/contact" className="text-gray-800 hover:text-purple-600 transition-colors">
+            <Link href="/contact" className={`${isCalculatorPage ? 'text-gray-800' : 'text-gray-800'} hover:text-purple-600 transition-colors`}>
               Contact
             </Link>
           </div>
 
-          {/* CTA Button - Right aligned */}
-          <div className="hidden md:block relative group">
-            <button className="bg-gradient-to-r from-purple-600 to-teal-600 hover:from-purple-700 hover:to-teal-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 shadow-lg hover:shadow-purple-200/50">
-              Claim Your Seat
-            </button>
-            {/* Tooltip */}
-            <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 bg-purple-600 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap shadow-lg">
-              Limited Seats Available
-              {/* Tooltip arrow */}
-              <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-b-purple-600"></div>
+          {/* CTA Buttons - Right aligned */}
+          <div className="hidden md:flex items-center space-x-4">
+            {/* Calculator CTA Button */}
+            <Link href="/calculator" className="relative group">
+              <button className={`${isCalculatorPage 
+                ? 'bg-purple-600 border-2 border-purple-600 text-white hover:bg-purple-700' 
+                : 'bg-white border-2 border-purple-600 text-purple-600 hover:bg-purple-50'} 
+                font-bold py-2 px-4 rounded-lg transition duration-300 shadow-md hover:shadow-purple-200/50`}>
+                Calculate Savings
+              </button>
+              {/* Tooltip */}
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 bg-purple-600 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap shadow-lg">
+                See how much time you can save
+                {/* Tooltip arrow */}
+                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-b-purple-600"></div>
+              </div>
+            </Link>
+            
+            {/* Original CTA Button */}
+            <div className="relative group">
+              <button className="bg-gradient-to-r from-purple-600 to-teal-600 hover:from-purple-700 hover:to-teal-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 shadow-lg hover:shadow-purple-200/50">
+                Claim Your Seat
+              </button>
+              {/* Tooltip */}
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 bg-purple-600 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap shadow-lg">
+                Limited Seats Available
+                {/* Tooltip arrow */}
+                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-b-purple-600"></div>
+              </div>
             </div>
           </div>
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-gray-800 hover:text-purple-600 transition-colors"
+            className={`md:hidden ${isCalculatorPage ? 'text-gray-800' : 'text-gray-800'} hover:text-purple-600 transition-colors`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -134,34 +160,37 @@ const Navbar = () => {
           isMobileMenuOpen ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
         } overflow-hidden`}>
           <div className="py-4 space-y-4">
-            <Link href="/about" className="block text-gray-800 hover:text-purple-600 transition-colors">
+            <Link href="/about" className={`block ${isCalculatorPage ? 'text-gray-800' : 'text-gray-800'} hover:text-purple-600 transition-colors`}>
               About
             </Link>
-            <Link href="/menu" className="block text-gray-800 hover:text-purple-600 transition-colors">
+            <Link href="/menu" className={`block ${isCalculatorPage ? 'text-gray-800' : 'text-gray-800'} hover:text-purple-600 transition-colors`}>
               Menu
             </Link>
-            <Link href="/subscription" className="block text-gray-800 hover:text-purple-600 transition-colors">
+            <Link href="/subscription" className={`block ${isCalculatorPage ? 'text-gray-800' : 'text-gray-800'} hover:text-purple-600 transition-colors`}>
               Subscription
+            </Link>
+            <Link href="/contact" className={`block ${isCalculatorPage ? 'text-gray-800' : 'text-gray-800'} hover:text-purple-600 transition-colors`}>
+              Contact
             </Link>
             
             {/* Mobile Insights Dropdown */}
-            <div ref={dropdownRef}>
+            <div>
               <button
-                onClick={() => toggleDropdown('mobile-insights')}
-                className="w-full text-left text-gray-800 hover:text-purple-600 transition-colors flex items-center justify-between"
+                onClick={() => toggleDropdown('insights-mobile')}
+                className={`flex items-center ${isCalculatorPage ? 'text-gray-800' : 'text-gray-800'} hover:text-purple-600 transition-colors`}
               >
                 Insights
-                <svg className={`w-4 h-4 transition-transform ${activeDropdown === 'mobile-insights' ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              {activeDropdown === 'mobile-insights' && (
+              {activeDropdown === 'insights-mobile' && (
                 <div className="pl-4 mt-2 space-y-2">
                   {insightsItems.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
-                      className="block text-gray-800 hover:text-purple-600 transition-colors"
+                      className={`block ${isCalculatorPage ? 'text-gray-800' : 'text-gray-800'} hover:text-purple-600 transition-colors`}
                     >
                       {item.name}
                     </Link>
@@ -169,18 +198,20 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-
-            <Link href="/contact" className="block text-gray-800 hover:text-purple-600 transition-colors">
-              Contact
-            </Link>
-            <div className="relative">
+            
+            {/* Mobile CTA Buttons */}
+            <div className="pt-4 space-y-3">
+              <Link href="/calculator" className="block">
+                <button className={`w-full ${isCalculatorPage 
+                  ? 'bg-purple-600 border-2 border-purple-600 text-white hover:bg-purple-700' 
+                  : 'bg-white border-2 border-purple-600 text-purple-600 hover:bg-purple-50'} 
+                  font-bold py-2 px-4 rounded-lg transition duration-300 shadow-md hover:shadow-purple-200/50`}>
+                  Calculate Savings
+                </button>
+              </Link>
               <button className="w-full bg-gradient-to-r from-purple-600 to-teal-600 hover:from-purple-700 hover:to-teal-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 shadow-lg hover:shadow-purple-200/50">
                 Claim Your Seat
               </button>
-              <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 bg-purple-600 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap shadow-lg">
-                Limited Seats Available
-                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-b-purple-600"></div>
-              </div>
             </div>
           </div>
         </div>

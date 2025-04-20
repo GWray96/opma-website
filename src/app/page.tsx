@@ -8,7 +8,6 @@ import { fourthTestimonial } from '../components/testimonials/fourthTestimonial'
 import HomePainPoints from './home/home-components/home-pain-points';
 import HomeSolutions from './home/home-components/home-solutions';
 import HomeComparison from './home/home-components/home-comparison';
-import { ROICalculator } from './home/home-components/roi-calculator';
 
 export default function Home() {
   return (
@@ -88,7 +87,20 @@ export default function Home() {
       {/* ROI Calculator Section */}
       <div className="py-12 md:py-16 bg-gradient-to-b from-slate-900 to-purple-900/20">
         <div className="container mx-auto px-4">
-          <ROICalculator />
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-white mb-4">Calculate Your Time Savings</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Discover how much time you could save by automating your marketing tasks with AI and outsourcing.
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <Link 
+              href="/calculator" 
+              className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-colors font-medium"
+            >
+              Try the Calculator
+            </Link>
+          </div>
         </div>
       </div>
 

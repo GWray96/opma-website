@@ -5,34 +5,34 @@ import React from 'react';
 const HomePainPoints = () => {
   const painPoints = [
     {
-      title: "Time-Consuming Marketing Tasks",
-      description: "Spending hours on campaigns instead of focusing on core business activities.",
+      title: "Time Constraints & Overwhelm",
+      description: "Struggling to balance marketing tasks with running your business, leading to burnout and missed opportunities.",
       icon: "⏰"
     },
     {
-      title: "Lack of Expertise in AI and Automation",
-      description: "Uncertainty about how to implement AI tools to streamline operations.",
-      icon: "🤖"
+      title: "Lack of Marketing Expertise",
+      description: "Feeling lost in the complex world of digital marketing without the knowledge to make informed decisions.",
+      icon: "📚"
     },
     {
-      title: "Inconsistent Online Presence",
-      description: "Difficulty maintaining a cohesive brand across multiple digital platforms.",
+      title: "No Clear Strategy",
+      description: "Operating without a defined marketing plan, leading to scattered efforts and wasted resources.",
       icon: "🎯"
     },
     {
-      title: "Overwhelming Number of Tools and Platforms",
-      description: "Juggling various software without a unified strategy.",
-      icon: "🔄"
+      title: "DIY Marketing Syndrome",
+      description: "Trying to do everything yourself, resulting in subpar results and valuable time wasted.",
+      icon: "🛠️"
     },
     {
-      title: "Limited Budget for Marketing Initiatives",
-      description: "Struggling to achieve results without overspending.",
-      icon: "💰"
+      title: "Unable to Identify Trends",
+      description: "Missing out on market opportunities because you can't spot or capitalize on emerging trends.",
+      icon: "📈"
     },
     {
-      title: "Difficulty Measuring ROI",
-      description: "Challenges in tracking the effectiveness of marketing efforts.",
-      icon: "📊"
+      title: "Marketing Overwhelm",
+      description: "Feeling paralyzed by the sheer number of marketing channels and tools available.",
+      icon: "😫"
     }
   ];
 
