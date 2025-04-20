@@ -4,6 +4,7 @@ import SingleTestimonial from '../components/testimonials/SingleTestimonial';
 import { featuredTestimonial } from '../components/testimonials/featuredTestimonial';
 import { secondTestimonial } from '../components/testimonials/secondTestimonial';
 import { thirdTestimonial } from '../components/testimonials/thirdTestimonial';
+import { fourthTestimonial } from '../components/testimonials/fourthTestimonial';
 import HomePainPoints from './home/home-components/home-pain-points';
 import HomeSolutions from './home/home-components/home-solutions';
 import HomeComparison from './home/home-components/home-comparison';
@@ -48,6 +49,15 @@ export default function Home() {
       
       {/* Comparison Section */}
       <HomeComparison />
+
+      {/* Fourth Testimonial Section */}
+      <div className="py-12 md:py-16 bg-gradient-to-b from-slate-900 to-purple-900/20">
+        <SingleTestimonial
+          {...fourthTestimonial}
+          size="large"
+          className="mb-4 md:mb-8"
+        />
+      </div>
     </div>
   );
 } 
