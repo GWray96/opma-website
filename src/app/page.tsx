@@ -5,8 +5,8 @@ import { featuredTestimonial } from '../components/testimonials/featuredTestimon
 import { secondTestimonial } from '../components/testimonials/secondTestimonial';
 import { thirdTestimonial } from '../components/testimonials/thirdTestimonial';
 import HomePainPoints from './home/home-components/home-pain-points';
-import HomeSolutions from './home/home-components/home-solutions';
-import HomeComparison from './home/home-components/home-comparison';
+import HomeSolutions from '../home-solutions';
+import HomeComparison from '../home-comparison';
 
 export default function Home() {
   return (
