@@ -4,6 +4,8 @@ import SingleTestimonial from '../components/testimonials/SingleTestimonial';
 import { featuredTestimonial } from '../components/testimonials/featuredTestimonial';
 import { secondTestimonial } from '../components/testimonials/secondTestimonial';
 import { thirdTestimonial } from '../components/testimonials/thirdTestimonial';
+import { fourthTestimonial } from '../components/testimonials/fourthTestimonial';
+import VideoTestimonial from '../components/testimonials/VideoTestimonial';
 import HomePainPoints from './home/home-components/home-pain-points';
 import HomeSolutions from './home/home-components/home-solutions';
 import HomeComparison from './home/home-components/home-comparison';
@@ -45,6 +47,15 @@ export default function Home() {
           className="mb-4 md:mb-8"
         />
       </div>
+      
+      {/* Fourth Testimonial - Video */}
+      <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-white via-indigo-50 to-purple-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <VideoTestimonial testimonial={fourthTestimonial} />
+          </div>
+        </div>
+      </section>
       
       {/* Comparison Section */}
       <HomeComparison />
