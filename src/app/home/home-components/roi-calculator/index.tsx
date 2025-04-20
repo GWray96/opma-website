@@ -34,20 +34,24 @@ export const ROICalculator = () => {
   };
 
   return (
-    <div className="mx-auto max-w-3xl rounded-xl bg-white p-6 shadow-lg">
-      <div className="text-center">
-        <h2 className="text-2xl font-bold text-gray-900">AI + Automation Time Saver</h2>
-        <p className="mt-2 text-sm text-gray-500">
-          Calculate how much time you could save with AI-powered marketing automation
+    <div className="mx-auto max-w-2xl">
+      <div className="text-center mb-8">
+        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          Time Savings Calculator
+        </h2>
+        <p className="mt-3 text-lg text-gray-300">
+          See how much time you could save with AI-powered automation
         </p>
       </div>
 
-      <div className="mt-8">
-        {!showResults ? (
-          <CalculatorForm onSubmit={handleSubmit} />
-        ) : (
-          <CalculatorResults data={calculatorData} onReset={handleReset} />
-        )}
+      <div className="bg-white rounded-xl shadow-xl overflow-hidden">
+        <div className="p-6">
+          {!showResults ? (
+            <CalculatorForm onSubmit={handleSubmit} />
+          ) : (
+            <CalculatorResults data={calculatorData} onReset={handleReset} />
+          )}
+        </div>
       </div>
     </div>
   );
