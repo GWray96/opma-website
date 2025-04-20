@@ -12,6 +12,8 @@ interface TestimonialProps {
   company: string;
   imageUrl: string;
   rating: number;
+  size?: string;
+  className?: string;
 }
 
 const SingleTestimonial: React.FC<TestimonialProps> = (props) => {
