@@ -59,7 +59,7 @@ export const CalculatorResults = ({ data, onReset }: CalculatorResultsProps) => 
         </div>
       </div>
 
-      <div className="rounded-lg bg-gradient-to-r from-purple-600 via-indigo-600 to-teal-600 p-6 text-white">
+      <div className="rounded-lg bg-gradient-to-br from-purple-600 to-indigo-600 p-6 text-white">
         <h4 className="text-lg font-medium">Time Reclaimed</h4>
         <p className="mt-2 text-4xl font-bold">{savedDays} working days</p>
         <p className="mt-1 text-sm text-white/80">

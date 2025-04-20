@@ -61,18 +61,18 @@ const SingleTestimonial: React.FC<TestimonialProps> = (props) => {
         </div>
 
         {props.videoUrl ? (
-          <div className="relative w-full pt-[56.25%] rounded-lg overflow-hidden">
+          <div className="relative w-full pt-[56.25%] rounded-lg overflow-hidden bg-black/20">
             <iframe
-              className="absolute top-0 left-0 w-full h-full"
+              className="absolute top-0 left-0 w-full h-full rounded-lg"
               src={props.videoUrl}
               title={`Video testimonial by ${props.author}`}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
           </div>
-        ) : (
+        ) : props.quote ? (
           <blockquote className="text-base sm:text-lg text-gray-300 italic">"{props.quote}"</blockquote>
-        )}
+        ) : null}
       </div>
     </div>
   );
