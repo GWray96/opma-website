@@ -8,6 +8,7 @@ import { fourthTestimonial } from '../components/testimonials/fourthTestimonial'
 import HomePainPoints from './home/home-components/home-pain-points';
 import HomeSolutions from './home/home-components/home-solutions';
 import HomeComparison from './home/home-components/home-comparison';
+import { ROICalculator } from './home/home-components/roi-calculator';
 
 export default function Home() {
   return (
@@ -57,6 +58,43 @@ export default function Home() {
           size="large"
           className="mb-4 md:mb-8"
         />
+      </div>
+
+      {/* How It Works Section */}
+      <div className="py-12 md:py-16">
+        {/* TODO: Add HowItWorks component */}
+      </div>
+
+      {/* Case Studies Section */}
+      <div className="py-12 md:py-16 bg-gradient-to-b from-slate-900 to-purple-900/20">
+        {/* TODO: Add CaseStudies component */}
+      </div>
+
+      {/* About Me Preview Section */}
+      <div className="py-12 md:py-16">
+        {/* TODO: Add AboutMePreview component */}
+      </div>
+
+      {/* Menu Preview Section */}
+      <div className="py-12 md:py-16 bg-gradient-to-b from-slate-900 to-purple-900/20">
+        {/* TODO: Add MenuPreview component */}
+      </div>
+
+      {/* Pricing Section */}
+      <div className="py-12 md:py-16">
+        {/* TODO: Add Pricing component */}
+      </div>
+
+      {/* ROI Calculator Section */}
+      <div className="py-12 md:py-16 bg-gradient-to-b from-slate-900 to-purple-900/20">
+        <div className="container mx-auto px-4">
+          <ROICalculator />
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="py-12 md:py-16">
+        {/* TODO: Add FAQ component */}
       </div>
     </div>
   );
