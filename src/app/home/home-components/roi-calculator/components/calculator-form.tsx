@@ -15,16 +15,16 @@ interface CalculatorFormProps {
 }
 
 const INITIAL_TASKS: Task[] = [
-  { id: 'blog', name: 'Writing blog content', hoursPerWeek: 5, usesAI: false, aiEfficiency: 0.7 },
-  { id: 'social', name: 'Social media posting', hoursPerWeek: 3, usesAI: false, aiEfficiency: 0.8 },
-  { id: 'email', name: 'Email marketing', hoursPerWeek: 2, usesAI: false, aiEfficiency: 0.6 },
-  { id: 'reports', name: 'Creating reports', hoursPerWeek: 4, usesAI: false, aiEfficiency: 0.75 },
-  { id: 'support', name: 'Customer support replies', hoursPerWeek: 6, usesAI: false, aiEfficiency: 0.65 },
-  { id: 'ads', name: 'Ad creative generation', hoursPerWeek: 3, usesAI: false, aiEfficiency: 0.85 },
-  { id: 'leads', name: 'Lead follow-ups', hoursPerWeek: 4, usesAI: false, aiEfficiency: 0.7 },
-  { id: 'analytics', name: 'Analytics review', hoursPerWeek: 2, usesAI: false, aiEfficiency: 0.8 },
-  { id: 'video', name: 'Video editing/repurposing', hoursPerWeek: 5, usesAI: false, aiEfficiency: 0.75 },
-  { id: 'website', name: 'Website updates', hoursPerWeek: 3, usesAI: false, aiEfficiency: 0.7 },
+  { id: 'blog', name: 'Writing blog content', hoursPerWeek: 0, usesAI: false, aiEfficiency: 0.7 },
+  { id: 'social', name: 'Social media posting', hoursPerWeek: 0, usesAI: false, aiEfficiency: 0.8 },
+  { id: 'email', name: 'Email marketing', hoursPerWeek: 0, usesAI: false, aiEfficiency: 0.6 },
+  { id: 'reports', name: 'Creating reports', hoursPerWeek: 0, usesAI: false, aiEfficiency: 0.75 },
+  { id: 'support', name: 'Customer support replies', hoursPerWeek: 0, usesAI: false, aiEfficiency: 0.65 },
+  { id: 'ads', name: 'Ad creative generation', hoursPerWeek: 0, usesAI: false, aiEfficiency: 0.85 },
+  { id: 'leads', name: 'Lead follow-ups', hoursPerWeek: 0, usesAI: false, aiEfficiency: 0.7 },
+  { id: 'analytics', name: 'Analytics review', hoursPerWeek: 0, usesAI: false, aiEfficiency: 0.8 },
+  { id: 'video', name: 'Video editing/repurposing', hoursPerWeek: 0, usesAI: false, aiEfficiency: 0.75 },
+  { id: 'website', name: 'Website updates', hoursPerWeek: 0, usesAI: false, aiEfficiency: 0.7 },
 ];
 
 export const CalculatorForm = ({ onSubmit }: CalculatorFormProps) => {
@@ -39,7 +39,9 @@ export const CalculatorForm = ({ onSubmit }: CalculatorFormProps) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit({ tasks, includeAISavings });
+    // Only include tasks that have hours > 0
+    const activeTasks = tasks.filter(task => task.hoursPerWeek > 0);
+    onSubmit({ tasks: activeTasks, includeAISavings });
   };
 
   return (
@@ -47,7 +49,7 @@ export const CalculatorForm = ({ onSubmit }: CalculatorFormProps) => {
       <div className="space-y-4">
         <h3 className="text-lg font-medium text-gray-900">Select Your Marketing Tasks</h3>
         <p className="text-sm text-gray-600">
-          Choose the tasks you currently handle and indicate if you're using AI/automation for any of them.
+          Choose the tasks you currently handle and enter how many hours you spend on each per week.
         </p>
       </div>
 
@@ -59,7 +61,19 @@ export const CalculatorForm = ({ onSubmit }: CalculatorFormProps) => {
                 <label htmlFor={`task-${task.id}`} className="text-sm font-medium text-gray-900">
                   {task.name}
                 </label>
-                <span className="text-sm text-gray-500">{task.hoursPerWeek} hrs/week</span>
+                <div className="flex items-center space-x-2">
+                  <input
+                    type="number"
+                    id={`hours-${task.id}`}
+                    min="0"
+                    max="168"
+                    value={task.hoursPerWeek}
+                    onChange={(e) => handleTaskChange(task.id, 'hoursPerWeek', Number(e.target.value))}
+                    className="w-20 rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm"
+                    placeholder="0"
+                  />
+                  <span className="text-sm text-gray-500">hrs/week</span>
+                </div>
               </div>
               <div className="mt-2 flex items-center space-x-4">
                 <div className="flex items-center">
