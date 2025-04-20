@@ -4,16 +4,24 @@ import { useState } from 'react';
 import { CalculatorForm } from './components/calculator-form';
 import { CalculatorResults } from './components/calculator-results';
 
+interface Task {
+  id: string;
+  name: string;
+  hoursPerWeek: number;
+  usesAI: boolean;
+  aiEfficiency: number;
+}
+
 interface CalculatorData {
-  hours: number;
-  aiEnabled: boolean;
+  tasks: Task[];
+  includeAISavings: boolean;
 }
 
 export const ROICalculator = () => {
   const [showResults, setShowResults] = useState(false);
   const [calculatorData, setCalculatorData] = useState<CalculatorData>({
-    hours: 0,
-    aiEnabled: false,
+    tasks: [],
+    includeAISavings: true
   });
 
   const handleSubmit = (data: CalculatorData) => {
@@ -28,9 +36,9 @@ export const ROICalculator = () => {
   return (
     <div className="mx-auto max-w-3xl rounded-xl bg-white p-6 shadow-lg">
       <div className="text-center">
-        <h2 className="text-2xl font-bold text-gray-900">Marketing ROI Calculator</h2>
+        <h2 className="text-2xl font-bold text-gray-900">AI + Automation Time Saver</h2>
         <p className="mt-2 text-sm text-gray-500">
-          Calculate your potential savings and ROI from automating marketing tasks
+          Calculate how much time you could save with AI-powered marketing automation
         </p>
       </div>
 
