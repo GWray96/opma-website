@@ -1,11 +1,11 @@
-import HomeHero from './home/home-components/home-hero';
+import HomeHero from '@/app/home/home-components/home-hero';
 import SingleTestimonial from '@/components/testimonials/SingleTestimonial';
 import { featuredTestimonial } from '@/components/testimonials/featuredTestimonial';
 import { secondTestimonial } from '@/components/testimonials/secondTestimonial';
 import { thirdTestimonial } from '@/components/testimonials/thirdTestimonial';
-import HomePainPoints from './home/home-components/home-pain-points';
-import HomeSolutions from './home/home-components/home-solutions';
-import HomeComparison from './home/home-components/home-comparison';
+import HomePainPoints from '@/app/home/home-components/home-pain-points';
+import HomeSolutions from '@/app/home/home-components/home-solutions';
+import HomeComparison from '@/app/home/home-components/home-comparison';
 
 export default function Home() {
   return (
