@@ -55,10 +55,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <VideoTestimonial testimonial={{
-              quote: "Sharing my experience with OPMA's digital marketing services",
-              author: "Client Name",
-              role: "Position",
-              company: "Company Name",
+              quote: "",
+              author: "Rich UX",
+              role: "Owner",
+              company: "Rich + Niche",
               imageUrl: "/images/testimonials/placeholder.jpg",
               rating: 5,
               videoUrl: "https://youtube.com/shorts/TrQqcXaLJEE?feature=shared"

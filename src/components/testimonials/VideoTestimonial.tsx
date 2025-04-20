@@ -70,9 +70,11 @@ const VideoTestimonial: React.FC<VideoTestimonialProps> = ({ testimonial }) => {
           </div>
         </div>
         
-        <blockquote className="text-gray-700 italic mb-6">
-          "{testimonial.quote}"
-        </blockquote>
+        {testimonial.quote && (
+          <blockquote className="text-gray-700 italic mb-6">
+            "{testimonial.quote}"
+          </blockquote>
+        )}
         
         {embedUrl ? (
           <div className="relative pt-[56.25%] w-full overflow-hidden rounded-lg">
