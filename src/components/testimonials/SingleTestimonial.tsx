@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Image from 'next/image';
-import VideoTestimonial from './VideoTestimonial';
 
 interface TestimonialProps {
   quote?: string;
@@ -17,12 +16,8 @@ interface TestimonialProps {
 }
 
 const SingleTestimonial: React.FC<TestimonialProps> = (props) => {
-  if (props.videoUrl) {
-    return <VideoTestimonial {...props} videoUrl={props.videoUrl} />;
-  }
-
   return (
-    <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-6 md:p-8 border border-white/10">
+    <div className={`bg-white/5 backdrop-blur-lg rounded-3xl p-6 md:p-8 border border-white/10 ${props.className || ''}`}>
       <div className="flex flex-col items-center text-center">
         <div className="flex items-center mb-6">
           <div className="h-12 w-12 rounded-full overflow-hidden relative bg-gray-200">
@@ -52,7 +47,19 @@ const SingleTestimonial: React.FC<TestimonialProps> = (props) => {
           ))}
         </div>
 
-        <blockquote className="text-lg text-gray-300 italic">"{props.quote}"</blockquote>
+        {props.videoUrl ? (
+          <div className="relative w-full pt-[56.25%] rounded-lg overflow-hidden">
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src={props.videoUrl}
+              title={`Video testimonial by ${props.author}`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        ) : (
+          <blockquote className="text-lg text-gray-300 italic">"{props.quote}"</blockquote>
+        )}
       </div>
     </div>
   );
