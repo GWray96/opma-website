@@ -51,8 +51,9 @@ export default function Home() {
       <HomeComparison />
       
       {/* Fourth Testimonial - Video */}
-      <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-white via-indigo-50 to-purple-50">
+      <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-white via-indigo-50 to-purple-50 border-4 border-blue-500">
         <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Video Testimonial</h2>
           <div className="max-w-4xl mx-auto">
             <VideoTestimonial testimonial={{
               quote: "Sharing my experience with OPMA's digital marketing services",
