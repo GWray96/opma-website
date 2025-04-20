@@ -101,7 +101,8 @@ const HomeComparison = () => {
                   <div className="text-xs text-amber-500 font-medium mb-1">Freelancer</div>
                   {point.freelancer ? <CheckIcon /> : <CrossIcon />}
                 </div>
-                <div className="flex flex-col items-center relative">
+                <div className="flex flex-col items-center">
+                  <div className="text-xs text-indigo-600 font-medium mb-1">Our Solution</div>
                   {point.solution ? <SolutionCheck /> : <CrossIcon />}
                 </div>
               </div>
@@ -120,14 +121,8 @@ const HomeComparison = () => {
             <div className="text-center">
               <div className="font-semibold text-amber-500 text-base md:text-lg">Freelancer</div>
             </div>
-            <div className="text-center relative">
-              <div className="absolute -inset-3 bg-indigo-500/5 rounded-xl -z-10"></div>
+            <div className="text-center">
               <div className="font-semibold text-indigo-600 text-base md:text-lg">Our Solution</div>
-              <div className="absolute -right-6 -top-6 hidden md:block">
-                <div className="bg-indigo-500 text-white text-xs md:text-sm px-3 py-1 rounded-full shadow-lg transform -rotate-12">
-                  Recommended
-                </div>
-              </div>
             </div>
           </div>
           
