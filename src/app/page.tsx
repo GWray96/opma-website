@@ -4,7 +4,6 @@ import SingleTestimonial from '../components/testimonials/SingleTestimonial';
 import { featuredTestimonial } from '../components/testimonials/featuredTestimonial';
 import { secondTestimonial } from '../components/testimonials/secondTestimonial';
 import { thirdTestimonial } from '../components/testimonials/thirdTestimonial';
-import { fourthTestimonial } from '../components/testimonials/fourthTestimonial';
 import VideoTestimonial from '../components/testimonials/VideoTestimonial';
 import HomePainPoints from './home/home-components/home-pain-points';
 import HomeSolutions from './home/home-components/home-solutions';
@@ -52,7 +51,15 @@ export default function Home() {
       <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-br from-white via-indigo-50 to-purple-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <VideoTestimonial testimonial={fourthTestimonial} />
+            <VideoTestimonial testimonial={{
+              quote: "Sharing my experience with OPMA's digital marketing services",
+              author: "Client Name",
+              role: "Position",
+              company: "Company Name",
+              imageUrl: "/images/testimonials/placeholder.jpg",
+              rating: 5,
+              videoUrl: "https://youtube.com/shorts/TrQqcXaLJEE?feature=shared"
+            }} />
           </div>
         </div>
       </section>
