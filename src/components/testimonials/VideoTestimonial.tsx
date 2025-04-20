@@ -36,9 +36,7 @@ const VideoTestimonial: React.FC<VideoTestimonialProps> = ({ videoUrl }) => {
                 src="/images/testimonials/RichUXpp.png"
                 alt="Rich UX"
                 fill
-                sizes="48px"
-                className="object-cover"
-                unoptimized
+                className="object-cover grayscale"
               />
             </div>
           </div>
