@@ -1,10 +1,10 @@
-import { ComponentType, ReactElement } from 'react';
+import { ReactNode } from 'react';
 
 interface StepCardProps {
   number: number;
   title: string;
   description: string;
-  icon: ComponentType<any> | ReactElement;
+  icon: ReactNode;
 }
 
 export function StepCard({ number, title, description, icon }: StepCardProps) {
