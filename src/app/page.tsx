@@ -94,22 +94,23 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto px-4 relative">
-          <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-200 to-purple-200">
+          <div className="text-center mb-12 md:mb-20">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
               Save 20+ Hours Every Week
             </h2>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8">
+            <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
               Stop wasting time on repetitive tasks. Our calculator shows you exactly how many hours you're losing and how AI automation can give you back your time.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link 
-                href="/calculator" 
-                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 font-medium text-lg shadow-lg hover:shadow-indigo-500/25 transform hover:-translate-y-0.5"
-              >
-                Calculate Your Time Savings →
-              </Link>
-              <p className="text-sm text-gray-400">Takes less than 2 minutes</p>
-            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+            <Link 
+              href="/calculator" 
+              className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 font-medium text-lg shadow-lg hover:shadow-indigo-500/25 transform hover:-translate-y-0.5"
+            >
+              Calculate Your Time Savings →
+            </Link>
+            <p className="text-sm text-gray-400">Takes less than 2 minutes</p>
           </div>
 
           {/* Time Savings Indicators */}
