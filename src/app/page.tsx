@@ -17,48 +17,80 @@ export default function Home() {
       <HomeHero />
       
       {/* Featured Testimonial Section */}
-      <div className="py-12 md:py-16 bg-gradient-to-b from-slate-900 to-purple-900/20">
-        <SingleTestimonial
-          {...featuredTestimonial}
-          size="large"
-          className="mb-4 md:mb-8"
-        />
+      <div className="py-12 md:py-16 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5"></div>
+          <div className="absolute top-0 -left-4 w-64 h-64 bg-blue-200/30 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+          <div className="absolute top-0 -right-4 w-64 h-64 bg-purple-200/30 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+        </div>
+        <div className="relative">
+          <SingleTestimonial
+            {...featuredTestimonial}
+            size="large"
+            className="mb-4 md:mb-8"
+          />
+        </div>
       </div>
 
       {/* Pain Points Section */}
       <HomePainPoints />
       
       {/* Second Testimonial Section */}
-      <div className="py-12 md:py-16 bg-gradient-to-b from-slate-900 to-purple-900/20">
-        <SingleTestimonial
-          {...secondTestimonial}
-          size="large"
-          className="mb-4 md:mb-8"
-        />
+      <div className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5"></div>
+          <div className="absolute top-0 -left-4 w-64 h-64 bg-blue-200/30 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+          <div className="absolute top-0 -right-4 w-64 h-64 bg-purple-200/30 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+        </div>
+        <div className="relative">
+          <SingleTestimonial
+            {...secondTestimonial}
+            size="large"
+            className="mb-4 md:mb-8"
+          />
+        </div>
       </div>
       
       {/* Solutions Section */}
       <HomeSolutions />
       
       {/* Third Testimonial Section */}
-      <div className="py-12 md:py-16 bg-gradient-to-b from-slate-900 to-purple-900/20">
-        <SingleTestimonial
-          {...thirdTestimonial}
-          size="large"
-          className="mb-4 md:mb-8"
-        />
+      <div className="py-12 md:py-16 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5"></div>
+          <div className="absolute top-0 -left-4 w-64 h-64 bg-blue-200/30 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+          <div className="absolute top-0 -right-4 w-64 h-64 bg-purple-200/30 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+        </div>
+        <div className="relative">
+          <SingleTestimonial
+            {...thirdTestimonial}
+            size="large"
+            className="mb-4 md:mb-8"
+          />
+        </div>
       </div>
       
       {/* Comparison Section */}
       <HomeComparison />
 
       {/* Fourth Testimonial Section */}
-      <div className="py-12 md:py-16 bg-gradient-to-b from-slate-900 to-purple-900/20">
-        <SingleTestimonial
-          {...fourthTestimonial}
-          size="large"
-          className="mb-4 md:mb-8"
-        />
+      <div className="py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5"></div>
+          <div className="absolute top-0 -left-4 w-64 h-64 bg-blue-200/30 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+          <div className="absolute top-0 -right-4 w-64 h-64 bg-purple-200/30 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+        </div>
+        <div className="relative">
+          <SingleTestimonial
+            {...fourthTestimonial}
+            size="large"
+            className="mb-4 md:mb-8"
+          />
+        </div>
       </div>
 
       {/* How It Works Section */}
@@ -83,20 +115,20 @@ export default function Home() {
       </div>
 
       {/* ROI Calculator Section */}
-      <div className="py-16 md:py-20 bg-gradient-to-b from-slate-900 to-purple-900/20 relative overflow-hidden">
+      <div className="py-16 md:py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5"></div>
-          <div className="absolute top-0 -left-4 w-64 h-64 bg-purple-200/10 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-          <div className="absolute top-0 -right-4 w-64 h-64 bg-indigo-200/10 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+          <div className="absolute top-0 -left-4 w-64 h-64 bg-blue-200/30 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+          <div className="absolute top-0 -right-4 w-64 h-64 bg-purple-200/30 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
         </div>
 
         <div className="container mx-auto px-4 relative">
           <div className="text-center mb-12 md:mb-20">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-violet-600">
               Save 20+ Hours Every Week
             </h2>
-            <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
               Transform your marketing efficiency with AI-powered automation and expert outsourcing. Our calculator reveals exactly how many hours you'll reclaim for strategic growth.
             </p>
           </div>
@@ -104,30 +136,30 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <Link 
               href="/calculator" 
-              className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 font-medium text-lg shadow-lg hover:shadow-indigo-500/25 transform hover:-translate-y-0.5"
+              className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-medium text-lg shadow-lg hover:shadow-purple-500/25 transform hover:-translate-y-0.5"
             >
               Calculate Your Time Savings →
             </Link>
-            <p className="text-sm text-gray-400">Takes less than 2 minutes</p>
+            <p className="text-sm text-gray-500">Takes less than 2 minutes</p>
           </div>
 
           {/* Time Savings Indicators */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">20+</div>
-              <div className="text-sm text-gray-400">Hours Saved Weekly</div>
+            <div className="text-center bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mb-2">20+</div>
+              <div className="text-sm text-gray-600">Hours Saved Weekly</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">80%</div>
-              <div className="text-sm text-gray-400">Less Time on Tasks</div>
+            <div className="text-center bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mb-2">80%</div>
+              <div className="text-sm text-gray-600">Less Time on Tasks</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">4x</div>
-              <div className="text-sm text-gray-400">Faster Task Completion</div>
+            <div className="text-center bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mb-2">4x</div>
+              <div className="text-sm text-gray-600">Faster Task Completion</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">100%</div>
-              <div className="text-sm text-gray-400">Automated Workflow</div>
+            <div className="text-center bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mb-2">100%</div>
+              <div className="text-sm text-gray-600">Automated Workflow</div>
             </div>
           </div>
         </div>

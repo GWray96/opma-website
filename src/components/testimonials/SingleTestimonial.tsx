@@ -30,20 +30,20 @@ const SingleTestimonial: React.FC<TestimonialProps> = (props) => {
   };
 
   return (
-    <div className={`bg-white/5 backdrop-blur-lg rounded-3xl p-4 sm:p-6 md:p-8 border border-white/10 ${getSizeClasses()} mx-auto ${props.className || ''}`}>
+    <div className={`bg-white shadow-lg rounded-3xl p-4 sm:p-6 md:p-8 border border-gray-100 ${getSizeClasses()} mx-auto ${props.className || ''} group hover:shadow-xl transition-all duration-300`}>
       <div className="flex flex-col items-center text-center">
         <div className="flex items-center mb-4 sm:mb-6">
-          <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-full overflow-hidden relative bg-gray-200">
+          <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-full overflow-hidden relative bg-gray-100 ring-2 ring-purple-100 group-hover:ring-purple-200 transition-all duration-300">
             <Image
               src={props.imageUrl}
               alt={props.author}
               fill
-              className="object-cover grayscale"
+              className="object-cover"
             />
           </div>
           <div className="ml-3 sm:ml-4 text-left">
-            <h4 className="text-base sm:text-lg font-semibold text-white">{props.author}</h4>
-            <p className="text-xs sm:text-sm text-gray-400">{props.role} @ {props.company}</p>
+            <h4 className="text-base sm:text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">{props.author}</h4>
+            <p className="text-xs sm:text-sm text-gray-600">{props.role} @ {props.company}</p>
           </div>
         </div>
 
@@ -61,7 +61,7 @@ const SingleTestimonial: React.FC<TestimonialProps> = (props) => {
         </div>
 
         {props.videoUrl ? (
-          <div className="relative w-full pt-[56.25%] rounded-lg overflow-hidden bg-black/20">
+          <div className="relative w-full pt-[56.25%] rounded-lg overflow-hidden bg-gray-50">
             <iframe
               className="absolute top-0 left-0 w-full h-full rounded-lg"
               src={props.videoUrl}
@@ -71,8 +71,11 @@ const SingleTestimonial: React.FC<TestimonialProps> = (props) => {
             />
           </div>
         ) : props.quote ? (
-          <blockquote className="text-base sm:text-lg text-gray-300 italic">"{props.quote}"</blockquote>
+          <blockquote className="text-base sm:text-lg text-gray-600 italic">"{props.quote}"</blockquote>
         ) : null}
+
+        {/* Hover gradient border */}
+        <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 blur transition-all duration-300 group-hover:opacity-5"></div>
       </div>
     </div>
   );
