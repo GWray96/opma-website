@@ -30,7 +30,7 @@ export default function CalculatorPage() {
               <span className="hidden sm:block">Save 20+ Hours Weekly: Your Marketing ROI Calculator</span>
             </h1>
             <p className="text-lg sm:text-xl text-indigo-100 max-w-3xl mx-auto px-4 sm:px-0">
-              Discover exactly how much time and money you're losing on repetitive tasks. Our calculator shows you the real cost of manual work and how AI automation can transform your marketing efficiency.
+              Let us handle your marketing while we implement AI automation in your business. Our calculator reveals exactly how many hours and dollars you'll save through expert outsourcing and smart automation.
             </p>
           </div>
         </div>
