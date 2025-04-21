@@ -55,14 +55,14 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center w-1/4">
             <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-teal-600 bg-clip-text text-transparent">
               OPMA
             </span>
           </Link>
 
           {/* Desktop Navigation - Centered */}
-          <div className="hidden md:flex items-center justify-center flex-1 space-x-8">
+          <div className="hidden md:flex items-center justify-center w-2/4 space-x-8">
             <Link href="/about" className={`${isCalculatorPage ? 'text-gray-800' : 'text-gray-800'} hover:text-purple-600 transition-colors`}>
               About
             </Link>
@@ -109,7 +109,7 @@ const Navbar = () => {
           </div>
 
           {/* CTA Buttons - Right aligned */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center justify-end w-1/4 space-x-4">
             {/* Calculator CTA Button */}
             <Link href="/calculator" className="relative group">
               <button className={`${isCalculatorPage 

@@ -44,6 +44,15 @@
   }
 }
 
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 .animate-blob {
   animation: blob 7s infinite;
   will-change: transform;
@@ -52,6 +61,10 @@
 .animate-float {
   animation: float 10s infinite;
   will-change: transform;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
 }
 
 /* Reduce motion for users who prefer it */
