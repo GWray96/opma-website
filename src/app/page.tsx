@@ -9,6 +9,7 @@ import HomePainPoints from './home/home-components/home-pain-points';
 import HomeSolutions from './home/home-components/home-solutions';
 import HomeComparison from './home/home-components/home-comparison';
 import { HowItWorks } from './home/home-components/how-it-works';
+import { CaseStudies } from './home/home-components/case-studies';
 
 export default function Home() {
   return (
@@ -64,9 +65,7 @@ export default function Home() {
       <HowItWorks />
 
       {/* Case Studies Section */}
-      <div className="py-12 md:py-16 bg-gradient-to-b from-slate-900 to-purple-900/20">
-        {/* TODO: Add CaseStudies component */}
-      </div>
+      <CaseStudies />
 
       {/* About Me Preview Section */}
       <div className="py-12 md:py-16">

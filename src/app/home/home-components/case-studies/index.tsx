@@ -3,48 +3,68 @@ import Link from 'next/link';
 
 const previewCaseStudies = [
   {
-    title: "Local Business Growth",
-    description: "How we helped a local business increase their online visibility and customer engagement.",
-    imageUrl: "/images/case-studies/local-business.jpg",
+    title: "Aspire 1 Nutrition",
+    description: "Complete Shopify store transformation with custom design, compelling copywriting, and AI-generated product imagery.",
+    imageUrl: "/images/case-studies/Aspire 1 Nutrition Case Study (1).webp",
     results: [
-      "150% increase in website traffic",
-      "80% growth in social media engagement",
-      "45% increase in lead generation"
+      "Custom Shopify store design",
+      "AI-powered product imagery",
+      "Strategic copywriting implementation"
     ],
-    link: "/case-studies/local-business"
+    link: "/case-studies/aspire-1-nutrition"
   },
   {
-    title: "E-commerce Transformation",
-    description: "Transforming an e-commerce store's online presence and sales performance.",
-    imageUrl: "/images/case-studies/ecommerce.jpg",
+    title: "MN Online Coach",
+    description: "Strategic landing page development and conversion optimization for a coaching business's client acquisition funnel.",
+    imageUrl: "/images/case-studies/MN Online Coach Case Study (2) (1).webp",
     results: [
-      "200% increase in online sales",
-      "60% reduction in cart abandonment",
-      "85% improvement in customer satisfaction"
+      "Custom landing page design",
+      "Strategic copywriting",
+      "Conversion rate optimization"
     ],
-    link: "/case-studies/ecommerce"
+    link: "/case-studies/mn-online-coach"
+  },
+  {
+    title: "Rich & Niche",
+    description: "Optimized Facebook ad campaign through strategic creative testing and performance analysis.",
+    imageUrl: "/images/case-studies/Rich+Niche Ad Case Study (1).webp",
+    results: [
+      "136% increase in result rate (2.76% to 6.51%)",
+      "223% increase in total clicks",
+      "25% reduction in cost per click"
+    ],
+    link: "/case-studies/rich-and-niche"
   }
 ];
 
 export const CaseStudies = () => {
   return (
-    <section className="py-16 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-slate-900 to-purple-900/20 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5"></div>
+        <div className="absolute top-0 -left-4 w-64 h-64 bg-purple-200/10 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+        <div className="absolute top-0 -right-4 w-64 h-64 bg-indigo-200/10 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+      </div>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+        <div className="text-center mb-12 md:mb-20">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
             Success Stories
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            See how we've helped businesses transform their online presence
+          <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
+            See how we've helped businesses transform their online presence and achieve remarkable results
           </p>
         </div>
+        
         <div className="mt-16">
           <CaseStudyGrid caseStudies={previewCaseStudies} />
         </div>
+
         <div className="mt-12 text-center">
           <Link
             href="/case-studies"
-            className="inline-flex items-center text-blue-600 hover:text-blue-800"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 font-medium text-lg shadow-lg hover:shadow-indigo-500/25 transform hover:-translate-y-0.5"
           >
             View all case studies
             <svg
