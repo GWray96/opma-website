@@ -1,12 +1,12 @@
 import { StepCard } from './step-card';
-import { ComponentType, ReactElement } from 'react';
+import { ReactNode } from 'react';
 
 interface ProcessTimelineProps {
   steps: {
     number: number;
     title: string;
     description: string;
-    icon: ComponentType<any> | ReactElement;
+    icon: ReactNode;
   }[];
 }
 
