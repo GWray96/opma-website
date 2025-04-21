@@ -18,7 +18,7 @@ export default function CalculatorPage() {
       </div>
       
       {/* Hero Section with proper spacing */}
-      <div className="relative overflow-hidden pt-20 sm:pt-24 md:pt-28 lg:pt-36 pb-6 sm:pb-8 md:pb-10 lg:pb-12">
+      <div className="relative overflow-hidden pt-40 sm:pt-44 md:pt-48 lg:pt-52 pb-6 sm:pb-8 md:pb-10 lg:pb-12">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6 sm:mb-8">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-200 to-purple-200">
