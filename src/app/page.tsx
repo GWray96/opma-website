@@ -99,7 +99,7 @@ export default function Home() {
               Save 20+ Hours Every Week
             </h2>
             <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
-              Stop wasting time on repetitive tasks. Our calculator shows you exactly how many hours you're losing and how AI automation can give you back your time.
+              Transform your marketing efficiency with AI-powered automation and expert outsourcing. Our calculator reveals exactly how many hours you'll reclaim for strategic growth.
             </p>
           </div>
 
