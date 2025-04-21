@@ -70,25 +70,25 @@ export function CalculatorResults({ tasks, includeAISavings, onReset }: Calculat
         {/* Results Summary */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12">
           <div className="bg-indigo-900/30 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-indigo-500/20">
-            <h3 className="text-base sm:text-lg font-medium text-indigo-100 mb-2">Weekly Time Saved</h3>
-            <p className="text-2xl sm:text-3xl font-bold text-indigo-300">{savings.weekly.saved.toFixed(1)} hrs</p>
-            <p className="text-xs sm:text-sm text-indigo-200 mt-2">That's {savings.weekly.percentage}% of your current time!</p>
+            <h3 className="text-base sm:text-lg font-medium text-indigo-100 mb-2">Monthly Time Saved</h3>
+            <p className="text-2xl sm:text-3xl font-bold text-indigo-300">{savings.monthly.saved.toFixed(1)} hrs</p>
+            <p className="text-xs sm:text-sm text-indigo-200 mt-2">That's {(savings.monthly.saved / 4).toFixed(1)} hours every week!</p>
           </div>
           <div className="bg-indigo-900/30 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-indigo-500/20">
-            <h3 className="text-base sm:text-lg font-medium text-indigo-100 mb-2">Annual Cost Savings</h3>
-            <p className="text-2xl sm:text-3xl font-bold text-indigo-300">${(savings.annual.saved * 50).toLocaleString()}</p>
-            <p className="text-xs sm:text-sm text-indigo-200 mt-2">Based on $50/hr rate</p>
+            <h3 className="text-base sm:text-lg font-medium text-indigo-100 mb-2">Yearly Time Saved</h3>
+            <p className="text-2xl sm:text-3xl font-bold text-indigo-300">{savings.annual.saved.toFixed(1)} hrs</p>
+            <p className="text-xs sm:text-sm text-indigo-200 mt-2">That's {Math.round(savings.annual.saved / 40)} full work weeks!</p>
           </div>
           <div className="bg-indigo-900/30 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-indigo-500/20">
-            <h3 className="text-base sm:text-lg font-medium text-indigo-100 mb-2">Monthly Cost Savings</h3>
-            <p className="text-2xl sm:text-3xl font-bold text-indigo-300">${(savings.monthly.saved * 50).toLocaleString()}</p>
-            <p className="text-xs sm:text-sm text-indigo-200 mt-2">That's ${(savings.monthly.saved * 50 / 4).toLocaleString()} per week</p>
+            <h3 className="text-base sm:text-lg font-medium text-indigo-100 mb-2">Time Efficiency Gain</h3>
+            <p className="text-2xl sm:text-3xl font-bold text-indigo-300">{savings.weekly.percentage}%</p>
+            <p className="text-xs sm:text-sm text-indigo-200 mt-2">More time for strategic growth</p>
           </div>
         </div>
 
         {/* What You Could Do With This Time */}
         <div className="bg-indigo-900/20 backdrop-blur-sm rounded-xl p-4 sm:p-6 mb-8 sm:mb-12 border border-indigo-500/10">
-          <h3 className="text-lg sm:text-xl font-bold text-indigo-100 mb-4">What You Could Do With This Time</h3>
+          <h3 className="text-lg sm:text-xl font-bold text-indigo-100 mb-4">What You Could Do With {Math.round(savings.annual.saved / 40)} Extra Work Weeks Per Year</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div className="flex items-start space-x-3 sm:space-x-4">
               <div className="flex-shrink-0 h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-indigo-900/50 flex items-center justify-center border border-indigo-500/30">
@@ -97,8 +97,8 @@ export function CalculatorResults({ tasks, includeAISavings, onReset }: Calculat
                 </svg>
               </div>
               <div>
-                <h4 className="text-base sm:text-lg font-medium text-indigo-100">Focus on Strategy</h4>
-                <p className="text-xs sm:text-sm text-indigo-200 mt-1">Spend more time on high-level planning and business growth strategies</p>
+                <h4 className="text-base sm:text-lg font-medium text-indigo-100">Strategic Planning</h4>
+                <p className="text-xs sm:text-sm text-indigo-200 mt-1">Dedicate {Math.round(savings.monthly.saved / 8)} full days each month to high-level strategy</p>
               </div>
             </div>
             <div className="flex items-start space-x-3 sm:space-x-4">
@@ -108,8 +108,8 @@ export function CalculatorResults({ tasks, includeAISavings, onReset }: Calculat
                 </svg>
               </div>
               <div>
-                <h4 className="text-base sm:text-lg font-medium text-indigo-100">Increase Productivity</h4>
-                <p className="text-xs sm:text-sm text-indigo-200 mt-1">Complete more tasks in less time with AI-powered automation</p>
+                <h4 className="text-base sm:text-lg font-medium text-indigo-100">Business Development</h4>
+                <p className="text-xs sm:text-sm text-indigo-200 mt-1">Invest {(savings.weekly.saved).toFixed(1)} hours weekly in growing your business</p>
               </div>
             </div>
             <div className="flex items-start space-x-3 sm:space-x-4">
@@ -119,19 +119,19 @@ export function CalculatorResults({ tasks, includeAISavings, onReset }: Calculat
                 </svg>
               </div>
               <div>
-                <h4 className="text-base sm:text-lg font-medium text-indigo-100">Improve Work-Life Balance</h4>
-                <p className="text-xs sm:text-sm text-indigo-200 mt-1">Reduce stress and enjoy more personal time with family and friends</p>
+                <h4 className="text-base sm:text-lg font-medium text-indigo-100">Work-Life Balance</h4>
+                <p className="text-xs sm:text-sm text-indigo-200 mt-1">Gain back {Math.round(savings.annual.saved / 24)} months of time annually for personal life</p>
               </div>
             </div>
             <div className="flex items-start space-x-3 sm:space-x-4">
               <div className="flex-shrink-0 h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-amber-900/50 flex items-center justify-center border border-amber-500/30">
                 <svg className="h-5 w-5 sm:h-6 sm:w-6 text-amber-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
               <div>
-                <h4 className="text-base sm:text-lg font-medium text-indigo-100">Increase Revenue</h4>
-                <p className="text-xs sm:text-sm text-indigo-200 mt-1">Focus on revenue-generating activities and client acquisition</p>
+                <h4 className="text-base sm:text-lg font-medium text-indigo-100">Professional Growth</h4>
+                <p className="text-xs sm:text-sm text-indigo-200 mt-1">Use {Math.round(savings.monthly.saved)} hours monthly for learning and skill development</p>
               </div>
             </div>
           </div>
@@ -140,13 +140,13 @@ export function CalculatorResults({ tasks, includeAISavings, onReset }: Calculat
         {/* Call to Action */}
         <div className="text-center">
           <p className="text-base sm:text-lg text-indigo-100 mb-4 sm:mb-6">
-            Imagine what you could achieve with {savings.weekly.saved.toFixed(1)} extra hours every week. Let's transform your marketing efficiency together.
+            Imagine what you could achieve with an extra {Math.round(savings.annual.saved)} hours every year. Let's transform your marketing efficiency together.
           </p>
           <button
             onClick={onReset}
             className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 border border-transparent text-sm sm:text-base font-medium rounded-md text-indigo-700 bg-white hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
-            Start Your Transformation
+            Calculate Another Scenario
           </button>
         </div>
       </div>
