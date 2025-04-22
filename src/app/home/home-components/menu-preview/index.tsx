@@ -11,14 +11,18 @@ import {
 const previewServices = [
   {
     title: "Digital Marketing",
-    description: "Comprehensive digital marketing solutions to grow your online presence and drive results.",
+    description: "Transform your online presence with our comprehensive digital marketing solutions. We combine creative strategy with data-driven insights to deliver exceptional results and measurable ROI.",
     features: [
-      "Website design & development",
-      "SEO optimization",
-      "Social media management",
-      "Content strategy",
-      "Email marketing",
-      "Analytics and reporting"
+      "Professional website design & development",
+      "Search engine optimization (SEO)",
+      "Pay-per-click advertising (PPC)",
+      "Social media marketing & management",
+      "Content marketing & strategy",
+      "Email marketing campaigns",
+      "Brand development & strategy",
+      "Analytics & performance tracking",
+      "Conversion rate optimization",
+      "Online reputation management"
     ],
     icon: <ChartBarIcon className="w-full h-full" />,
     isFeature: true
