@@ -12,7 +12,9 @@ const previewTiers = [
       "1 Landing Page or Funnel",
       "Basic CRM + Automation",
       "4 Social Media Posts",
-      "Monthly Strategy Call"
+      "Monthly Strategy Call",
+      "Email Marketing Setup",
+      "Basic Analytics"
     ],
     ctaText: "View Details",
     ctaLink: "/pricing#essentials"
@@ -25,7 +27,11 @@ const previewTiers = [
       "2 Funnels or Landing Pages",
       "Workflow Automation",
       "12 Content Assets monthly",
-      "Weekly Strategy Call"
+      "Weekly Strategy Call",
+      "Advanced CRM + Automation",
+      "Social Media Management",
+      "Email Marketing Strategy",
+      "Basic SEO Setup"
     ],
     isPopular: true,
     ctaText: "View Details",
@@ -39,7 +45,11 @@ const previewTiers = [
       "Everything in Momentum",
       "20 Content Assets monthly",
       "Paid Ads Management",
-      "Dedicated Strategy Lead"
+      "Dedicated Strategy Lead",
+      "Advanced SEO Strategy",
+      "Competitor Analysis",
+      "Custom Automation Flows",
+      "Priority Support"
     ],
     ctaText: "View Details",
     ctaLink: "/pricing#scale-engine"
