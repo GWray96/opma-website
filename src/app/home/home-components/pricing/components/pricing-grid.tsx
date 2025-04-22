@@ -5,9 +5,9 @@ interface PricingTier {
   price: string;
   description: string;
   features: string[];
-  isPopular?: boolean;
   ctaText: string;
   ctaLink: string;
+  isPopular?: boolean;
   bonus?: string;
 }
 
@@ -17,10 +17,15 @@ interface PricingGridProps {
 
 export const PricingGrid = ({ tiers }: PricingGridProps) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-      {tiers.map((tier, index) => (
-        <div key={index} className={`${index === 1 ? 'md:-mt-4 md:mb-4' : ''}`}>
-          <PricingCard {...tier} />
+    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {tiers.map((tier) => (
+        <div
+          key={tier.title}
+          className={`relative ${
+            tier.isPopular ? 'lg:scale-105 lg:-translate-y-2' : ''
+          }`}
+        >
+          <PricingCard tier={tier} />
         </div>
       ))}
     </div>

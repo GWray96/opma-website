@@ -1,74 +1,72 @@
-import { CheckIcon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
+import { CheckIcon } from '@heroicons/react/24/solid';
 
-interface PricingCardProps {
+interface PricingTier {
   title: string;
   price: string;
   description: string;
   features: string[];
-  isPopular?: boolean;
   ctaText: string;
   ctaLink: string;
+  isPopular?: boolean;
   bonus?: string;
 }
 
-export const PricingCard = ({
-  title,
-  price,
-  description,
-  features,
-  isPopular = false,
-  ctaText,
-  ctaLink,
-  bonus,
-}: PricingCardProps) => {
+interface PricingCardProps {
+  tier: PricingTier;
+}
+
+export const PricingCard = ({ tier }: PricingCardProps) => {
   return (
-    <div 
-      className={`relative rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl ${
-        isPopular 
-          ? 'bg-gradient-to-b from-white to-blue-50 border-2 border-blue-500 shadow-lg scale-105 z-10' 
-          : 'bg-white/80 backdrop-blur-sm border border-gray-200 shadow-md hover:scale-105'
+    <div
+      className={`relative rounded-2xl p-8 ${
+        tier.isPopular
+          ? 'bg-gradient-to-b from-blue-50 to-white border-2 border-blue-200 shadow-xl'
+          : 'bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300'
       }`}
     >
-      {isPopular && (
-        <div className="absolute top-0 right-0 bg-gradient-to-r from-blue-600 to-blue-500 text-white px-4 py-1 text-sm font-semibold rounded-tr-2xl rounded-bl-2xl">
-          Most Popular
+      {tier.isPopular && (
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+          <span className="inline-flex items-center rounded-full bg-blue-100 px-4 py-1 text-sm font-medium text-blue-800">
+            Most Popular
+          </span>
         </div>
       )}
       
-      <div className="p-8">
-        <h3 className="text-2xl font-bold text-gray-900">{title}</h3>
-        <p className="mt-3 text-gray-600">{description}</p>
-        
-        <div className="mt-6 flex items-baseline">
-          <span className="text-4xl font-extrabold text-gray-900">{price}</span>
-          <span className="ml-1 text-gray-500">/month</span>
+      <div className="text-center">
+        <h3 className="text-2xl font-bold text-gray-900">{tier.title}</h3>
+        <div className="mt-4">
+          <span className="text-4xl font-bold text-gray-900">{tier.price}</span>
+          <span className="text-gray-500">/month</span>
         </div>
-        
-        {bonus && (
-          <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-100">
-            <p className="text-sm text-blue-700 font-medium">{bonus}</p>
-          </div>
-        )}
-        
-        <ul className="mt-8 space-y-4">
-          {features.map((feature, index) => (
-            <li key={index} className="flex items-start">
-              <CheckIcon className="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" />
-              <span className="text-gray-700">{feature}</span>
-            </li>
-          ))}
-        </ul>
-        
+        <p className="mt-4 text-gray-500">{tier.description}</p>
+      </div>
+      
+      <ul className="mt-8 space-y-4">
+        {tier.features.map((feature) => (
+          <li key={feature} className="flex items-start">
+            <CheckIcon className="h-5 w-5 text-blue-500 shrink-0" />
+            <span className="ml-3 text-gray-600">{feature}</span>
+          </li>
+        ))}
+      </ul>
+      
+      {tier.bonus && (
+        <div className="mt-6 rounded-lg bg-blue-50 p-4">
+          <p className="text-sm font-medium text-blue-800">{tier.bonus}</p>
+        </div>
+      )}
+      
+      <div className="mt-8">
         <Link
-          href={ctaLink}
-          className={`mt-8 block w-full py-3 px-4 text-center rounded-lg font-semibold transition-all duration-200 ${
-            isPopular
-              ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white hover:from-blue-700 hover:to-blue-600 shadow-md hover:shadow-lg'
+          href={tier.ctaLink}
+          className={`block w-full rounded-lg px-4 py-3 text-center text-sm font-semibold ${
+            tier.isPopular
+              ? 'bg-blue-600 text-white hover:bg-blue-700'
               : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
-          }`}
+          } transition-colors duration-200`}
         >
-          {ctaText}
+          {tier.ctaText}
         </Link>
       </div>
     </div>
