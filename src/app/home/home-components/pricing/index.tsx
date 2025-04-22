@@ -98,7 +98,7 @@ export const Pricing = () => {
             Simple, Transparent Pricing
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Choose the plan that's right for your service-based business. All plans include our core services with options to scale as you grow.
+            Choose the plan that's right for your business. All plans include our core services with options to scale as you grow.
           </p>
         </div>
         
