@@ -15,8 +15,13 @@ export const CalculatorPreview = () => {
 
       <div className="container mx-auto px-4 relative">
         <div className="text-center mb-16 md:mb-24 max-w-4xl mx-auto">
+          <div className="inline-block mb-4">
+            <span className="text-lg md:text-xl font-medium text-gray-600 bg-white/80 backdrop-blur-sm px-6 py-2 rounded-full shadow-sm border border-gray-100">
+              Still Not Sold?
+            </span>
+          </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-violet-600 leading-tight">
-            Save 20+ Hours Every Week
+            See How Much Time You'll Save
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Transform your marketing efficiency with AI-powered automation and expert outsourcing. Our calculator reveals exactly how many hours you'll reclaim for strategic growth.
