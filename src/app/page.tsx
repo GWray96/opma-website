@@ -102,13 +102,13 @@ export default function Home() {
       {/* Case Studies Section */}
       <CaseStudies />
 
-      {/* Menu Preview Section */}
-      <MenuPreview />
-
       {/* About Me Preview Section */}
       <div className="py-12 md:py-16">
         {/* TODO: Add AboutMePreview component */}
       </div>
+
+      {/* Menu Preview Section */}
+      <MenuPreview />
 
       {/* Pricing Section */}
       <Pricing />
