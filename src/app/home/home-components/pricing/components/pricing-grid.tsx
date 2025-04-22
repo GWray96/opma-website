@@ -8,6 +8,7 @@ interface PricingTier {
   isPopular?: boolean;
   ctaText: string;
   ctaLink: string;
+  bonus?: string;
 }
 
 interface PricingGridProps {
@@ -16,9 +17,11 @@ interface PricingGridProps {
 
 export const PricingGrid = ({ tiers }: PricingGridProps) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
       {tiers.map((tier, index) => (
-        <PricingCard key={index} {...tier} />
+        <div key={index} className={`${index === 1 ? 'md:-mt-4 md:mb-4' : ''}`}>
+          <PricingCard {...tier} />
+        </div>
       ))}
     </div>
   );
