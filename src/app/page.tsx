@@ -12,6 +12,7 @@ import { HowItWorks } from './home/home-components/how-it-works';
 import { CaseStudies } from './home/home-components/case-studies';
 import { MenuPreview } from './home/home-components/menu-preview';
 import { CalculatorPreview } from './home/home-components/calculator-preview';
+import { Pricing } from './home/home-components/pricing';
 
 export default function Home() {
   return (
@@ -110,9 +111,7 @@ export default function Home() {
       </div>
 
       {/* Pricing Section */}
-      <div className="py-12 md:py-16">
-        {/* TODO: Add Pricing component */}
-      </div>
+      <Pricing />
 
       {/* ROI Calculator Section */}
       <CalculatorPreview />
