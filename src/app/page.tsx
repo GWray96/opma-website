@@ -12,6 +12,7 @@ import { HowItWorks } from './home/home-components/how-it-works';
 import { CaseStudies } from './home/home-components/case-studies';
 import { MenuPreview } from './home/home-components/menu-preview';
 import { CalculatorPreview } from './home/home-components/calculator-preview';
+import { Pricing } from './home/home-components/pricing';
 
 export default function Home() {
   return (
@@ -108,6 +109,9 @@ export default function Home() {
 
       {/* Menu Preview Section */}
       <MenuPreview />
+
+      {/* Pricing Section */}
+      <Pricing />
 
       {/* ROI Calculator Section */}
       <CalculatorPreview />
