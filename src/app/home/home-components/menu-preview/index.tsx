@@ -3,42 +3,45 @@
 import { ServiceGrid } from './components/service-grid';
 import Link from 'next/link';
 import {
-  GlobeAltIcon,
   ChartBarIcon,
+  SparklesIcon,
   RocketLaunchIcon,
 } from '@heroicons/react/24/outline';
 
 const previewServices = [
   {
-    title: "Website Development",
-    description: "Create a professional and engaging website that represents your brand.",
-    features: [
-      "Responsive design",
-      "SEO optimization",
-      "Content management system",
-      "Performance optimization"
-    ],
-    icon: <GlobeAltIcon className="w-full h-full" />,
-  },
-  {
     title: "Digital Marketing",
-    description: "Strategic marketing solutions to grow your online presence.",
+    description: "Comprehensive digital marketing solutions to grow your online presence and drive results.",
     features: [
+      "Website design & development",
+      "SEO optimization",
       "Social media management",
       "Content strategy",
       "Email marketing",
       "Analytics and reporting"
     ],
     icon: <ChartBarIcon className="w-full h-full" />,
+    isFeature: true
+  },
+  {
+    title: "AI Solutions",
+    description: "Leverage the power of artificial intelligence to enhance your business operations.",
+    features: [
+      "AI-powered chatbots",
+      "Predictive analytics",
+      "Smart automation",
+      "Data insights"
+    ],
+    icon: <SparklesIcon className="w-full h-full" />,
   },
   {
     title: "Marketing Automation",
-    description: "Streamline your marketing efforts with automated solutions.",
+    description: "Streamline your marketing efforts with intelligent automation solutions.",
     features: [
       "Email automation",
-      "Social media scheduling",
       "Lead nurturing",
-      "Campaign management"
+      "Campaign management",
+      "Performance tracking"
     ],
     icon: <RocketLaunchIcon className="w-full h-full" />,
   }

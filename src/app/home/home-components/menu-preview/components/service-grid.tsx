@@ -5,6 +5,7 @@ interface Service {
   description: string;
   features: string[];
   icon: React.ReactNode;
+  isFeature?: boolean;
 }
 
 interface ServiceGridProps {
@@ -12,20 +13,38 @@ interface ServiceGridProps {
 }
 
 export const ServiceGrid = ({ services }: ServiceGridProps) => {
+  // Find the feature service (Digital Marketing)
+  const featureService = services.find(service => service.isFeature);
+  const otherServices = services.filter(service => !service.isFeature);
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
-      {services.map((service, index) => (
-        <div 
-          key={index} 
-          className="transform transition-all duration-300 hover:scale-105"
-          style={{
-            opacity: 0,
-            animation: `fadeIn 0.5s ease-out ${index * 0.2}s forwards`
-          }}
-        >
-          <ServiceCard {...service} />
-        </div>
-      ))}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      {/* Feature card - Digital Marketing */}
+      <div className="lg:row-span-2 transform transition-all duration-300 hover:scale-105"
+        style={{
+          opacity: 0,
+          animation: 'fadeIn 0.5s ease-out forwards'
+        }}
+      >
+        {featureService && <ServiceCard {...featureService} isFeature={true} />}
+      </div>
+
+      {/* Right column with two cards */}
+      <div className="grid grid-cols-1 gap-8">
+        {otherServices.map((service, index) => (
+          <div
+            key={index}
+            className="transform transition-all duration-300 hover:scale-105"
+            style={{
+              opacity: 0,
+              animation: `fadeIn 0.5s ease-out ${(index + 1) * 0.2}s forwards`
+            }}
+          >
+            <ServiceCard {...service} />
+          </div>
+        ))}
+      </div>
+
       <style jsx>{`
         @keyframes fadeIn {
           from {
