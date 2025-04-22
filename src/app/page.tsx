@@ -10,6 +10,7 @@ import HomeSolutions from './home/home-components/home-solutions';
 import HomeComparison from './home/home-components/home-comparison';
 import { HowItWorks } from './home/home-components/how-it-works';
 import { CaseStudies } from './home/home-components/case-studies';
+import { MenuPreview } from './home/home-components/menu-preview';
 
 export default function Home() {
   return (
@@ -99,14 +100,12 @@ export default function Home() {
       {/* Case Studies Section */}
       <CaseStudies />
 
+      {/* Menu Preview Section */}
+      <MenuPreview />
+
       {/* About Me Preview Section */}
       <div className="py-12 md:py-16">
         {/* TODO: Add AboutMePreview component */}
-      </div>
-
-      {/* Menu Preview Section */}
-      <div className="py-12 md:py-16 bg-gradient-to-b from-slate-900 to-purple-900/20">
-        {/* TODO: Add MenuPreview component */}
       </div>
 
       {/* Pricing Section */}
